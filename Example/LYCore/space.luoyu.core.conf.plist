@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>core-net-domain</key>
+	<dict>
+		<key>name</key>
+		<string>Core Networking Domain</string>
+		<key>conf-value</key>
+		<string>app.luoyu.space</string>
+	</dict>
+	<key>core-net-domain-dev</key>
+	<dict>
+		<key>name</key>
+		<string>Core Networking Dev Domain</string>
+		<key>conf-value</key>
+		<string>dev.luoyu.space</string>
+	</dict>
+	<key>core-net-api-path</key>
+	<dict>
+		<key>name</key>
+		<string>Core Networking API path</string>
+		<key>conf-value</key>
+		<string>/api</string>
+	</dict>
+	<key>core-net-api-path-dev</key>
+	<dict>
+		<key>name</key>
+		<string>Core Networking API path</string>
+		<key>conf-value</key>
+		<string>/api</string>
+	</dict>
+	<key>core-net-is-secure-transport</key>
+	<dict>
+		<key>name</key>
+		<string>Transport Security Toggle</string>
+		<key>conf-value</key>
+		<string>https://</string>
+	</dict>
+	<key>core-net-is-secure-transport-dev</key>
+	<dict>
+		<key>name</key>
+		<string>Transport Security Dev Toggle</string>
+		<key>conf-value</key>
+		<string>http://</string>
+	</dict>
+</dict>
+</plist>

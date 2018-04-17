@@ -24,6 +24,14 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	// DO ANY ADDITIONAL SETUP AFTER LOADING THE VIEW FROM ITS NIB.
+	
+	NSLog(@"CoreNetDomain: %@", [[LYCore core] valueForConfWithKey:@"core-net-domain"]);
+	
+	[[LYCoreAPI core] GETURLString:@"/post" withParameters:nil success:^(id ret) {
+		
+	} failure:^(NSError *error) {
+		
+	}];
 }
 
 - (void)didReceiveMemoryWarning {
