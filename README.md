@@ -26,6 +26,18 @@ core-net-api-path-dev|/api-v2|Core Networking API path(Development)
 core-net-is-secure-transport|https://|Transport Security Toggle(Production)
 core-net-is-secure-transport-dev|http://|Transport Security Toggle(Development)
 
+by toggling `[LYCore core].debug` _(BOOL)_, lib will use corresponding values to generate session manager.
+
+example:
+
+```bash
+# production mode
+https://app.luoyu.space/api
+
+# development mode
+http://dev.luoyu.space/api-v2
+```
+
 ##### * You can add your own key-value configurations
 
 and access it by...
@@ -46,7 +58,7 @@ or
 
 Simply add category to LYCoreAPI, then you can write your own specified request method.
 
-e.g. 
+example: 
 
 **LYCoreAPI+Example.h**
 
