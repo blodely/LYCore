@@ -64,7 +64,7 @@ e.g.
 @end
 ```
 
-this add a api error block for project error code handling.
+this add an api error block for project error code handling.
 
 **LYCoreAPI+Example.m**
 
