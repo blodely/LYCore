@@ -1,0 +1,16 @@
+source 'https://github.com/blodely/LYSpecs.git'
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '9.0'
+
+use_frameworks!
+
+target 'LYCore_Example' do
+  pod 'LYCore', :path => '../'
+
+  target 'LYCore_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
