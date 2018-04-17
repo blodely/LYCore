@@ -94,4 +94,51 @@
 	[self initialManager];
 }
 
+// MARK: - REQUEST
+
+- (NSURLSessionDataTask *)GETURLString:(NSString *)URLString
+						withParameters:(NSDictionary *)params
+							   success:(void (^)(id))success
+							   failure:(void (^)(NSError *))failure {
+	
+	NSURLSessionDataTask *dataTask = [manager GET:[API stringByAppendingString:URLString] parameters:params progress:^(NSProgress *downloadProgress) {
+		// PROGRESS
+	} success:^(NSURLSessionDataTask *task, id resp) {
+		
+		// SUCCESS
+		success(resp);
+		NSLog(@"\n\nREQUEST(GET) SUCCESS\n\tAPI\t%@\n", URLString);
+		
+	} failure:^(NSURLSessionDataTask *task, NSError *error) {
+		// REQUEST FAILED
+		failure(error);
+		NSLog(@"\n\nREQUEST(GET) FAILED\n\tAPI\t%@\n", URLString);
+	}];
+	
+	return dataTask;
+}
+
+- (NSURLSessionDataTask *)POSTURLString:(NSString *)URLString
+						 withParameters:(NSDictionary *)params
+								success:(void (^)(id))success
+								failure:(void (^)(NSError *))failure {
+	
+	NSURLSessionDataTask *dataTask = [manager POST:[API stringByAppendingString:URLString] parameters:params progress:^(NSProgress *uploadProgress) {
+		
+	} success:^(NSURLSessionDataTask *task, id resp) {
+		
+		// SUCCESS
+		success(resp);
+		NSLog(@"\n\nREQUEST(POST) SUCCESS\n\tAPI\t%@\n", URLString);
+		
+	} failure:^(NSURLSessionDataTask *task, NSError *error) {
+		// REQUEST FAILED
+		failure(error);
+		NSLog(@"\n\nREQUEST(POST) FAILED\n\tAPI\t%@\n", URLString);
+	}];
+	
+	return dataTask;
+	
+}
+
 @end
