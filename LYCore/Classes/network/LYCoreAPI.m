@@ -9,7 +9,7 @@
 #import "LYCoreAPI.h"
 #import <AFNetworking/AFNetworking.h>
 #import "LYCore.h"
-
+#import <LYCategory/LYCategory.h>
 
 @interface LYCoreAPI () {
 	AFHTTPSessionManager *manager;
