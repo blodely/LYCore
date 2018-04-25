@@ -19,6 +19,8 @@ DerivedData
 
 #CocoaPods
 Pods
+Podfile.lock
 
 #Vim
 *.swp
+
