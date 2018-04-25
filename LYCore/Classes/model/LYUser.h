@@ -9,8 +9,18 @@
 #import <Foundation/Foundation.h>
 #import <LYCore/LYModel.h>
 
-@interface LYUser : NSObject
+typedef NS_ENUM(NSUInteger, LYUserGender) {
+	LYUserGenderFemale,
+	LYUserGenderMale,
+	LYUserGenderNull,
+};
 
+@interface LYUser : LYModel
 
+@property (nonatomic, strong) NSString *mobile;
+
+@property (nonatomic, strong) NSString *name;
+
+@property (nonatomic, assign) LYUserGender gender;
 
 @end
