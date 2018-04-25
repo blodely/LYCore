@@ -8,6 +8,7 @@
 
 #import "LYViewController.h"
 #import <LYCore/LYCore.h>
+#import <FCFileManager/FCFileManager.h>
 
 @interface LYViewController ()
 
