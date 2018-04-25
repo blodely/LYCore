@@ -23,4 +23,18 @@ typedef NS_ENUM(NSUInteger, LYUserGender) {
 
 @property (nonatomic, assign) LYUserGender gender;
 
+- (instancetype)initWithCoder:(NSCoder *)coder;
+
+- (void)encodeWithCoder:(NSCoder *)coder;
+
+- (id)copyWithZone:(nullable NSZone *)zone;
+
+- (BOOL)isEqual:(id)other;
+
+- (BOOL)isEqualToUser:(LYUser *)user;
+
+- (NSUInteger)hash;
+
+- (NSString *)description;
+
 @end
