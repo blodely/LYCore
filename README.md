@@ -6,7 +6,7 @@ General core lib for apps.
 
 Add following code to the top of your project's `Podfile`.
 
-```
+```ruby
 source 'https://github.com/blodely/LYSpecs.git'
 source 'https://github.com/CocoaPods/Specs.git'
 ```

@@ -76,4 +76,68 @@ NSString *const NAME_CONF_LY_CORE = @"space.luoyu.core.conf";
 	}
 }
 
+#pragma mark LOG
+
+- (NSString *)logError:(NSString *)format, ... {
+	va_list args;
+	id ret;
+	
+	va_start(args, format);
+	if (format == nil) {
+		ret = nil;
+	} else {
+		format = [format stringByReplacingOccurrencesOfString:@"\n" withString:@"\n\t"];
+		ret = [[NSString alloc] initWithFormat:format arguments:args];
+	}
+	
+	va_end(args);
+	
+	if (ret != nil) {
+		
+		NSLog(@"\n\n❎ERROR :\n\t%@", ret);
+		
+		return [NSString stringWithFormat:@"\n\n%@\nLYCore ERROR :\n\t%@",
+				[[NSDate date] stringWithFormat:@"yyyy-MM-dd HH:mm:ss" andTimezone:[[NSTimeZone defaultTimeZone] name]],
+				ret];
+	} else {
+		// NIL
+		NSLog(@"\n\n❎ERROR :\n\t");
+	}
+	
+	return [NSString stringWithFormat:@"\n\n%@\nLYCore ERROR :\n\tNO LOG",
+			[[NSDate date] stringWithFormat:@"yyyy-MM-dd HH:mm:ss" andTimezone:[[NSTimeZone defaultTimeZone] name]]];
+}
+
+- (NSString *)logWarning:(NSString *)format, ... {
+	
+	va_list args;
+	id ret;
+	
+	va_start(args, format);
+	if (format == nil) {
+		ret = nil;
+	} else {
+		format = [format stringByReplacingOccurrencesOfString:@"\n" withString:@"\n\t"];
+		ret = [[NSString alloc] initWithFormat:format arguments:args];
+	}
+	
+	va_end(args);
+	
+	if (ret != nil) {
+		
+		NSLog(@"\n\n⚠️WARNING :\n\t%@", ret);
+		
+		return [NSString stringWithFormat:@"\n\n%@\nLYCore WARNING :\n\t%@",
+				[[NSDate date] stringWithFormat:@"yyyy-MM-dd HH:mm:ss" andTimezone:[[NSTimeZone defaultTimeZone] name]],
+				ret];
+	} else {
+		// NIL
+		NSLog(@"\n\n⚠️WARNING :\n\t");
+	}
+	
+	return [NSString stringWithFormat:@"\n\n%@\nLYCore WARNING :\n\tNO LOG",
+			[[NSDate date] stringWithFormat:@"yyyy-MM-dd HH:mm:ss" andTimezone:[[NSTimeZone defaultTimeZone] name]]];
+	
+}
+
 @end

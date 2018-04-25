@@ -32,6 +32,9 @@
 	} failure:^(NSError *error) {
 		
 	}];
+	
+	[[LYCore core] logError:@"HELLO ERROR"];
+	[[LYCore core] logWarning:@"Hello, warnings"];
 }
 
 - (void)didReceiveMemoryWarning {

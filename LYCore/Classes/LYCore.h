@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <LYCore/LYCore.h>
 #import <LYCore/LYCoreAPI.h>
+#import <LYCore/LYUser.h>
 #import <LYCategory/LYCategory.h>
 
 FOUNDATION_EXPORT NSString *const LIB_LYCORE_BUNDLE_ID;
@@ -42,5 +43,8 @@ FOUNDATION_EXPORT NSString *const LIB_LYCORE_BUNDLE_ID;
  @return configuration value
  */
 - (id)valueForConfWithKey:(NSString *)keys;
+
+- (NSString *)logError:(NSString *)format, ... NS_FORMAT_FUNCTION(1,2);
+- (NSString *)logWarning:(NSString *)format, ... NS_FORMAT_FUNCTION(1,2);
 
 @end
