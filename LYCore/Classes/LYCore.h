@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <LYCore/LYCore.h>
 #import <LYCore/LYCoreAPI.h>
+#import <LYCore/LYModel.h>
+#import <LYCore/LYApp.h>
 #import <LYCore/LYUser.h>
 #import <LYCategory/LYCategory.h>
 
