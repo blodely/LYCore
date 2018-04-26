@@ -69,6 +69,7 @@
 		E83FA621E41D2BEF4DD911BB /* Pods_LYCore_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LYCore_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF4531C5EA2B871604925F7F /* Pods-LYCore_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LYCore_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-LYCore_Example/Pods-LYCore_Example.release.xcconfig"; sourceTree = "<group>"; };
 		F47F548731A3C57E5040A785 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		FCAD2EEC20919E6C005B1368 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +195,7 @@
 			children = (
 				D8D2D2FB1779C9346C1A78EB /* LYCore.podspec */,
 				F47F548731A3C57E5040A785 /* README.md */,
+				FCAD2EEC20919E6C005B1368 /* CHANGELOG.md */,
 				837CE1EB4099C0B483351917 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
