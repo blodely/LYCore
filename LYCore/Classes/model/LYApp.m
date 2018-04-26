@@ -7,6 +7,10 @@
 //
 
 #import "LYApp.h"
+#import "FCFileManager.h"
+
+NSString *const NOTIF_USER_UPDATED = @"notif.ly.app.user.updated";
+NSString *const NOTIF_USER_LOGOUT = @"notif.ly.app.user.logout";
 
 @interface LYApp () {
 }
@@ -36,8 +40,8 @@
 		_isLoggedIn = NO;
 		_userID = nil;
 		_badge = 0;
-		
-		self syn
+
+		[self synchronize];
 	}
 	return self;
 }
@@ -73,27 +77,44 @@
 
 #pragma mark - PROPERTIES
 
-- (BOOL)isLoggedIn {
-	return NO;
-}
-
-- (void)setIsLoggedIn:(BOOL)isLoggedIn {
-	// TODO: WRITE TO USER DEFAULTS
-}
-
 #pragma mark - METHOD
 
 - (void)updateUserAfterLogin:(NSDictionary *)values {
-	// TODO: PERSIST USER
+	// DONE: PERSIST USER
+
+	if (values == nil || [values isKindOfClass:[NSDictionary class]] == NO || [[values allKeys] count] == 0) {
+		[[LYCore core] logError:@"WRITE USER DATA: EMPTY RECEIVED"];
+		return;
+	}
+
+	_isLoggedIn = YES;
+	_userID = values[@"userID"];
+
+	LYUser *user = [[LYUser alloc] init];
+	user.UID = _userID;
+	user.mobile = values[@"mobile"];
+	user.gender = [values[@"gender"] integerValue] == 1 ? LYUserGenderMale : LYUserGenderFemale;
+	user.userInfo = values[@"userInfo"];
+
+	[user persist];
+
+	[self persist];
 }
 
 - (LYUser *)currentUser {
-	// TODO: CURRENT LOGGED-IN USER GETTER
-	return nil;
+	// DONE: CURRENT LOGGED-IN USER GETTER
+	return [LYUser userWithUID:[LYApp current].userID];
 }
 
 - (void)logout {
-	// TODO: CLEAN EVERYTHING
+	// DONE: CLEAN EVERYTHING
+
+	_userID = nil;
+	_isLoggedIn = NO;
+
+	[self persist];
+
+	[[NSNotificationCenter defaultCenter] postNotificationName:NOTIF_USER_LOGOUT object:nil userInfo:nil];
 }
 
 #pragma mark PRIVATE METHOD
