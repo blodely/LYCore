@@ -79,7 +79,7 @@
 	NSMutableString *description = [NSMutableString stringWithFormat:@"<%@: ", NSStringFromClass([self class])];
 	[description appendFormat:@"self.mobile=%@", self.mobile];
 	[description appendFormat:@", self.name=%@", self.name];
-	[description appendFormat:@", self.gender=%d", self.gender];
+	[description appendFormat:@", self.gender=%@", @(self.gender)];
 	[description appendFormat:@", self.avatar=%@", self.avatar];
 	[description appendFormat:@", self.userInfo=%@", self.userInfo];
 	[description appendString:@">"];
