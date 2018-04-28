@@ -13,6 +13,7 @@
 #import <LYCore/LYApp.h>
 #import <LYCore/LYUser.h>
 #import <LYCategory/LYCategory.h>
+#import <LYCore/UIImageView+LYCoreNetwork.h>
 
 FOUNDATION_EXPORT NSString *const LIB_LYCORE_BUNDLE_ID;
 
