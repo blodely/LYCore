@@ -62,9 +62,12 @@
 	AFHTTPResponseSerializer *responseSerializer = manager.responseSerializer;
 	NSMutableSet *types = [responseSerializer.acceptableContentTypes mutableCopy];
 	((AFJSONResponseSerializer *)manager.responseSerializer).removesKeysWithNullValues = YES;
+
 	[types addObject:@"json/text"]; // OR OTHERS
 	[types addObject:@"text/plain"];
 	[types addObject:@"text/html"];
+	[types addObject:@"application/json"];
+	
 	responseSerializer.acceptableContentTypes = types;
 	manager.responseSerializer = responseSerializer;
 	
