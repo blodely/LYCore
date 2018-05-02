@@ -13,6 +13,7 @@
 
 @interface LYCoreAPI () {
 	AFHTTPSessionManager *manager;
+	AFHTTPSessionManager *absolute;
 	
 	NSString *PROTOCOL;
 	NSString *BASE_URL;
@@ -57,6 +58,7 @@
 
 - (void)initialManager {
 	manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithFormat:@"%@%@", PROTOCOL, BASE_URL]];
+	absolute = [[AFHTTPSessionManager alloc] init];
 	
 	// SETUP JSON FORMAT
 	AFHTTPResponseSerializer *responseSerializer = manager.responseSerializer;
@@ -142,6 +144,43 @@
 	
 	return dataTask;
 	
+}
+
+- (NSURLSessionDataTask *)GETAbsoluteURLString:(NSString *)URLString withParameters:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSError *))failure {
+	
+	NSURLSessionDataTask *datatask = [absolute GET:URLString parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
+		
+	} success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable resp) {
+		
+		// SUCCESS
+		success(resp);
+		NSLog(@"\n\nREQUEST(GET) SUCCESS\n\tABSOLUTE\t%@\n", URLString);
+		
+	} failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+		
+		// FAILED
+		failure(error);
+		NSLog(@"\n\nREQUEST(GET) FAILED\n\tABSOLUTE\t%@\n", URLString);
+	}];
+	
+	return datatask;
+}
+
+- (NSURLSessionDataTask *)POSTAbsoluteURLString:(NSString *)URLString withParameters:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSError *))failure {
+	
+	NSURLSessionDataTask *datatask = [absolute POST:URLString parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
+		
+	} success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable resp) {
+		// SUCCESS
+		success(resp);
+		NSLog(@"\n\nREQUEST(POST) SUCCESS\n\tABSOLUTE\t%@\n", URLString);
+	} failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+		// FAILED
+		failure(error);
+		NSLog(@"\n\nREQUEST(POST) FAILED\n\tABSOLUTE\t%@\n", URLString);
+	}];
+	
+	return datatask;
 }
 
 @end

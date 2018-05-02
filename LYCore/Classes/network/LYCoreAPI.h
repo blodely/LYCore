@@ -50,5 +50,34 @@
 								success:(void (^)(id ret))success
 								failure:(void (^)(NSError *error))failure;
 
+/**
+ make GET request using absolute url
+
+ @param URLString url
+ @param params parameters
+ @param success request success block
+ @param failure request failure block
+ @return session data task
+ */
+- (NSURLSessionDataTask *)GETAbsoluteURLString:(NSString *)URLString
+								withParameters:(NSDictionary *)params
+									   success:(void (^)(id ret))success
+									   failure:(void (^)(NSError *error))failure;
+
+/**
+ make POST request using absolute url
+
+ @param URLString url
+ @param params parameters
+ @param success success block
+ @param failure failure block
+ @return session data task
+ */
+- (NSURLSessionDataTask *)POSTAbsoluteURLString:(NSString *)URLString
+								 withParameters:(NSDictionary *)params
+										success:(void (^)(id ret))success
+										failure:(void (^)(NSError *error))failure;
+
+
 
 @end
