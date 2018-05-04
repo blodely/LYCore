@@ -25,6 +25,8 @@ FOUNDATION_EXPORT NSString *const NOTIF_USER_LOGOUT;
 
 @property (nonatomic, assign) NSInteger badge;
 
+@property (nonatomic, strong) NSDate *target;
+
 - (void)updateUserAfterLogin:(NSDictionary *)values;
 
 - (LYUser *)currentUser;
