@@ -81,6 +81,12 @@ NSString *const NOTIF_USER_LOGOUT = @"notif.ly.app.user.logout";
 
 #pragma mark - PROPERTIES
 
+- (void)setTarget:(NSDate *)target {
+	_target = target;
+	
+	[self persist];
+}
+
 #pragma mark - METHOD
 
 - (void)updateUserAfterLogin:(NSDictionary *)values {
@@ -151,6 +157,7 @@ NSString *const NOTIF_USER_LOGOUT = @"notif.ly.app.user.logout";
 	
 	_isLoggedIn = app.isLoggedIn;
 	_userID = app.userID;
+	_target = app.target;
 	_badge = app.badge;
 	
 	app = nil;
