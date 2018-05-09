@@ -28,10 +28,9 @@ Core library 4 iOS app.
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
   s.frameworks = 'Foundation', 'UIKit'
   
-  s.dependency 'AFNetworking', '~> 3.2.0'
+  s.dependency 'AFNetworking', '~> 3.2.1'
   s.dependency 'FCFileManager', '~> 1.0.20'
   
   s.ios.dependency 'LYCategory'
