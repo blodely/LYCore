@@ -4,6 +4,12 @@ documented project changes.
 
 ---
 
+## [1.0.7]
+
+target date property.
+
+theme color
+
 ## [1.0.2]
 
 add model base class.
