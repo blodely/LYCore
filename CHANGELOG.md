@@ -4,6 +4,10 @@ documented project changes.
 
 ---
 
+## [1.0.8]
+
+image cache enabled.
+
 ## [1.0.7]
 
 target date property.
