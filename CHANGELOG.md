@@ -4,6 +4,10 @@ documented project changes.
 
 ---
 
+## [1.0.9]
+
+image downloader.
+
 ## [1.0.8]
 
 image cache enabled.

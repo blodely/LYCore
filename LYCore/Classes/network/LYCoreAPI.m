@@ -210,7 +210,6 @@
 		} else {
 			// NOTHING WAS FOUND
 			// REQUEST FROM WEB
-			// TODO:
 			NSURLRequest *request = [NSURLRequest requestWithFormat:@"%@", URLString];
 			[imgdl downloadImageForURLRequest:request withReceiptID:[NSUUID UUID] success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull responseObject) {
 				success(responseObject);
