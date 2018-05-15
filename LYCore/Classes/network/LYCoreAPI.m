@@ -8,6 +8,8 @@
 
 #import "LYCoreAPI.h"
 #import <AFNetworking/AFNetworking.h>
+#import <AFNetworking/AFAutoPurgingImageCache.h>
+#import <AFNetworking/AFImageDownloader.h>
 #import "LYCore.h"
 #import <LYCategory/LYCategory.h>
 
@@ -181,6 +183,45 @@
 	}];
 	
 	return datatask;
+}
+
+- (void)GETImageURLString:(NSString *)URLString success:(void (^)(UIImage *))success failure:(void (^)(NSError *))failure {
+	
+	if (URLString == nil || [URLString isKindOfClass:[NSString class]] || [URLString isEqualToString:@""]) {
+		// URL STRING NOT VALID
+		return;
+	}
+	
+	NSString *imgIdentifier = [URLString lastPathComponent];
+	AFImageDownloader *imgdl = [AFImageDownloader defaultInstance];
+	
+	UIImage *memCached = [imgdl.imageCache imageforRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:URLString]] withAdditionalIdentifier:imgIdentifier];
+	
+	if (!memCached) {
+		// NO MEMORY IMAGE CACHE WAS FOUND
+		
+		// SEARCH FOR HDD IMAGE CACHE
+		NSURLCache *imgURLCache = imgdl.sessionManager.session.configuration.URLCache;
+		NSCachedURLResponse *cachedResp = [imgURLCache cachedResponseForRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:URLString]]];
+		
+		if (cachedResp.data) {
+			// FOUND HDD CACHE
+			success([UIImage imageWithData:cachedResp.data]);
+		} else {
+			// NOTHING WAS FOUND
+			// REQUEST FROM WEB
+			// TODO:
+			NSURLRequest *request = [NSURLRequest requestWithFormat:@"%@", URLString];
+			[imgdl downloadImageForURLRequest:request withReceiptID:[NSUUID UUID] success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull responseObject) {
+				success(responseObject);
+			} failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+				failure(error);
+			}];
+		}
+		
+	} else {
+		success(memCached);
+	}
 }
 
 @end

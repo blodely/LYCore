@@ -79,5 +79,8 @@
 										failure:(void (^)(NSError *error))failure;
 
 
+- (void)GETImageURLString:(NSString *)URLString
+				  success:(void (^)(UIImage *image))success
+				  failure:(void (^)(NSError *error))failure;
 
 @end
