@@ -187,7 +187,7 @@
 
 - (void)GETImageURLString:(NSString *)URLString success:(void (^)(UIImage *))success failure:(void (^)(NSError *))failure {
 	
-	if (URLString == nil || [URLString isKindOfClass:[NSString class]] || [URLString isEqualToString:@""]) {
+	if (URLString == nil || ![URLString isKindOfClass:[NSString class]] || [URLString isEqualToString:@""]) {
 		// URL STRING NOT VALID
 		return;
 	}
