@@ -40,6 +40,7 @@ NSString *const NOTIF_USER_LOGOUT = @"notif.ly.app.user.logout";
 		_isLoggedIn = NO;
 		_userID = nil;
 		_target = nil;
+		_lastLoginName = nil;
 		_badge = 0;
 
 		[self synchronize];
@@ -53,6 +54,7 @@ NSString *const NOTIF_USER_LOGOUT = @"notif.ly.app.user.logout";
 		self.userID = [coder decodeObjectForKey:@"self.userID"];
 		self.badge = [coder decodeIntegerForKey:@"self.badge"];
 		self.target = [coder decodeObjectForKey:@"self.target"];
+		self.lastLoginName = [coder decodeObjectForKey:@"self.last.login.name"];
 	}
 	return self;
 }
@@ -65,6 +67,7 @@ NSString *const NOTIF_USER_LOGOUT = @"notif.ly.app.user.logout";
 		app.userID = self.userID;
 		app.badge = self.badge;
 		app.target = self.target;
+		app.lastLoginName = self.lastLoginName;
 	}
 	
 	return app;
@@ -77,6 +80,7 @@ NSString *const NOTIF_USER_LOGOUT = @"notif.ly.app.user.logout";
 	[coder encodeObject:self.userID forKey:@"self.userID"];
 	[coder encodeInteger:self.badge forKey:@"self.badge"];
 	[coder encodeObject:self.target forKey:@"self.target"];
+	[coder encodeObject:self.lastLoginName forKey:@"self.last.login.name"];
 }
 
 #pragma mark - PROPERTIES
@@ -159,6 +163,7 @@ NSString *const NOTIF_USER_LOGOUT = @"notif.ly.app.user.logout";
 	_userID = app.userID;
 	_target = app.target;
 	_badge = app.badge;
+	_lastLoginName = app.lastLoginName;
 	
 	app = nil;
 }

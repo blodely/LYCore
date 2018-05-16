@@ -27,6 +27,8 @@ FOUNDATION_EXPORT NSString *const NOTIF_USER_LOGOUT;
 
 @property (nonatomic, strong) NSDate *target;
 
+@property (nonatomic, strong) NSString *lastLoginName;
+
 - (void)updateUserAfterLogin:(NSDictionary *)values;
 
 - (LYUser *)currentUser;
