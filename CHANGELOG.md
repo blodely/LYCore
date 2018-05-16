@@ -4,6 +4,10 @@ documented project changes.
 
 ---
 
+## [1.0.11]
+
+json parser with null key-value remover toggler;
+
 ## [1.0.9]
 
 image downloader.
