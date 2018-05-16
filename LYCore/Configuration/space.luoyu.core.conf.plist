@@ -16,6 +16,13 @@
 		<key>conf-value</key>
 		<string>app.luoyu.space</string>
 	</dict>
+	<key>core-net-json-null</key>
+	<dict>
+		<key>name</key>
+		<string>Core Networking JSON response parser remove Null key-values</string>
+		<key>conf-value</key>
+		<true/>
+	</dict>
 	<key>core-net-domain-dev</key>
 	<dict>
 		<key>name</key>

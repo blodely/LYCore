@@ -65,7 +65,7 @@
 	// SETUP JSON FORMAT
 	AFHTTPResponseSerializer *responseSerializer = manager.responseSerializer;
 	NSMutableSet *types = [responseSerializer.acceptableContentTypes mutableCopy];
-	((AFJSONResponseSerializer *)manager.responseSerializer).removesKeysWithNullValues = YES;
+	((AFJSONResponseSerializer *)manager.responseSerializer).removesKeysWithNullValues = [[[LYCore core] valueForConfWithKey:@"core-net-json-null"] boolValue];
 
 	[types addObject:@"json/text"]; // OR OTHERS
 	[types addObject:@"text/plain"];
