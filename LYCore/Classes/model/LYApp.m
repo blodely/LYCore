@@ -35,7 +35,7 @@ NSString *const NOTIF_USER_LOGOUT = @"notif.ly.app.user.logout";
 - (instancetype)init {
 	if (self = [super init]) {
 		
-		self.UID = @"default.app"; // THIS INSTANCE SHOULD BE A SINGLETON
+		self.UID = @"default.appdata.dimo"; // THIS INSTANCE SHOULD BE A SINGLETON
 		
 		_isLoggedIn = NO;
 		_userID = nil;
