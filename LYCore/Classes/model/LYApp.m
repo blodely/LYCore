@@ -103,6 +103,7 @@ NSString *const NOTIF_USER_LOGOUT = @"notif.ly.app.user.logout";
 
 	_isLoggedIn = YES;
 	_userID = values[@"userID"];
+	_lastLoginName = values[@"lastLoginName"];
 
 	LYUser *user = [[LYUser alloc] init];
 	user.UID = _userID;
@@ -166,6 +167,12 @@ NSString *const NOTIF_USER_LOGOUT = @"notif.ly.app.user.logout";
 	_lastLoginName = app.lastLoginName;
 	
 	app = nil;
+}
+
+// MARK: OVERRIDE
+
+- (NSString *)description {
+	return [NSString stringWithFormat:@"LYApp : (%@/Documents/LYApp/%@)", NSHomeDirectory(), self.UID];
 }
 
 @end
