@@ -52,6 +52,7 @@
 	LYUser *copy = (LYUser *) [super copyWithZone:zone];
 
 	if (copy != nil) {
+		copy.token = self.token;
 		copy.mobile = self.mobile;
 		copy.name = self.name;
 		copy.gender = self.gender;
@@ -65,6 +66,7 @@
 - (instancetype)initWithCoder:(NSCoder *)coder {
 	self = [super initWithCoder:coder];
 	if (self) {
+		self.token = [coder decodeObjectForKey:@"self.token"];
 		self.mobile = [coder decodeObjectForKey:@"self.mobile"];
 		self.name = [coder decodeObjectForKey:@"self.name"];
 		self.gender = (LYUserGender) [coder decodeIntForKey:@"self.gender"];
@@ -81,6 +83,7 @@
 	[description appendFormat:@", self.name=%@", self.name];
 	[description appendFormat:@", self.gender=%@", @(self.gender)];
 	[description appendFormat:@", self.avatar=%@", self.avatar];
+	[description appendFormat:@", self.token=%@", self.token];
 	[description appendFormat:@", self.userInfo=%@", self.userInfo];
 	[description appendString:@">"];
 	return description;
@@ -88,6 +91,7 @@
 
 - (void)encodeWithCoder:(NSCoder *)coder {
 	[super encodeWithCoder:coder];
+	[coder encodeObject:self.token forKey:@"self.token"];
 	[coder encodeObject:self.mobile forKey:@"self.mobile"];
 	[coder encodeObject:self.name forKey:@"self.name"];
 	[coder encodeInt:self.gender forKey:@"self.gender"];

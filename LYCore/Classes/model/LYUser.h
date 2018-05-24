@@ -17,6 +17,8 @@ typedef NS_ENUM(NSUInteger, LYUserGender) {
 
 @interface LYUser : LYModel
 
+@property (nonatomic, strong) NSString *token;
+
 @property (nonatomic, strong) NSString *mobile;
 
 @property (nonatomic, strong) NSString *name;
