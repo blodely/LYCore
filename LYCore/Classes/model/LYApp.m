@@ -85,12 +85,6 @@ NSString *const NOTIF_USER_LOGOUT = @"notif.ly.app.user.logout";
 
 #pragma mark - PROPERTIES
 
-- (void)setTarget:(NSDate *)target {
-	_target = target;
-	
-	[self persist];
-}
-
 #pragma mark - METHOD
 
 - (void)updateUserAfterLogin:(NSDictionary *)values {
@@ -131,6 +125,17 @@ NSString *const NOTIF_USER_LOGOUT = @"notif.ly.app.user.logout";
 	[self persist];
 
 	[[NSNotificationCenter defaultCenter] postNotificationName:NOTIF_USER_LOGOUT object:nil userInfo:nil];
+}
+
+- (void)updateTargetDate:(NSDate *)targetDate {
+	
+	if ([targetDate isKindOfClass:[NSDate class]] == NO) {
+		return;
+	}
+	
+	_target = targetDate;
+	
+	[self persist];
 }
 
 #pragma mark PRIVATE METHOD

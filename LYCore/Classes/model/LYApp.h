@@ -35,4 +35,6 @@ FOUNDATION_EXPORT NSString *const NOTIF_USER_LOGOUT;
 
 - (void)logout;
 
+- (void)updateTargetDate:(NSDate *)targetDate;
+
 @end
