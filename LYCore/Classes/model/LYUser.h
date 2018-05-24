@@ -31,8 +31,4 @@ typedef NS_ENUM(NSUInteger, LYUserGender) {
 
 - (BOOL)isEqualToUser:(LYUser *)user;
 
-- (NSUInteger)hash;
-
-
-
 @end
