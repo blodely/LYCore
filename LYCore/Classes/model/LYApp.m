@@ -177,7 +177,13 @@ NSString *const NOTIF_USER_LOGOUT = @"notif.ly.app.user.logout";
 // MARK: OVERRIDE
 
 - (NSString *)description {
-	return [NSString stringWithFormat:@"LYApp : (%@/Documents/LYApp/%@)", NSHomeDirectory(), self.UID];
+	return [NSString stringWithFormat:@"\n\nLYApp : \n\tisLoggedIn = %@\n\tuserID = %@\n\ttarget = %@\n\tbadge = %@\n\tlastLoginName = %@\n\tURL (%@/Documents/LYApp/%@)",
+			_isLoggedIn ? @"YES" : @"NO",
+			_userID,
+			[_target stringWithFormat:@"yyyy-MM-dd hh:mm:ss" andTimezone:TZShanghai],
+			@(_badge),
+			_lastLoginName,
+			NSHomeDirectory(), self.UID];
 }
 
 @end
