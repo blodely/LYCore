@@ -108,6 +108,9 @@ NSString *const NOTIF_USER_LOGOUT = @"notif.ly.app.user.logout";
 	user.userInfo = values[@"userInfo"];
 
 	[user persist];
+	
+	// POST USER INFO UPDATED NOTIFICATION
+	[[NSNotificationCenter defaultCenter] postNotificationName:NOTIF_USER_UPDATED object:nil];
 
 	[self persist];
 }
