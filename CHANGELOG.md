@@ -4,8 +4,9 @@ documented project changes.
 
 ---
 
-## [1.0.14]
+## [1.0.17]
 
+post update user info notification
 fix target date
 
 ## [1.0.11]
