@@ -128,6 +128,7 @@ NSString *const NOTIF_USER_LOGOUT = @"notif.ly.app.user.logout";
 
 	[self persist];
 
+	// LOGOUT NOTIFICATION
 	[[NSNotificationCenter defaultCenter] postNotificationName:NOTIF_USER_LOGOUT object:nil userInfo:nil];
 }
 

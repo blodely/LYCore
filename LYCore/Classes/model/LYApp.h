@@ -19,22 +19,55 @@ FOUNDATION_EXPORT NSString *const NOTIF_USER_LOGOUT;
 
 + (instancetype)current;
 
+/**
+ is user logged in
+ */
 @property (nonatomic, assign) BOOL isLoggedIn;
 
+/**
+ user ID
+ */
 @property (nonatomic, strong) NSString *userID;
 
+/**
+ app badge number
+ */
 @property (nonatomic, assign) NSInteger badge;
 
+/**
+ target date
+ */
 @property (nonatomic, strong) NSDate *target;
 
+/**
+ last successfully login user name
+ */
 @property (nonatomic, strong) NSString *lastLoginName;
 
+/**
+ update current user after login action
+
+ @param values userInfo
+ */
 - (void)updateUserAfterLogin:(NSDictionary *)values;
 
+/**
+ get current user instance
+
+ @return instance of the current logged in user
+ */
 - (LYUser *)currentUser;
 
+/**
+ logout method
+ */
 - (void)logout;
 
+/**
+ set a target date
+
+ @param targetDate target date
+ */
 - (void)updateTargetDate:(NSDate *)targetDate;
 
 @end
