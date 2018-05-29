@@ -20,4 +20,6 @@
  */
 - (void)persist;
 
++ (instancetype)modelByUID:(NSString *)theUID;
+
 @end

@@ -75,4 +75,28 @@
 	 			self];
 }
 
++ (instancetype)modelByUID:(NSString *)theUID {
+	
+	NSString *modeldir = [NSHomeDirectory() stringByAppendingFormat:@"/Documents/%@", NSStringFromClass([self class])];
+	
+	if (![FCFileManager isDirectoryItemAtPath:modeldir]) {
+		// DIRECTORY NOT EXIST
+		return nil;
+	}
+	
+	if (theUID == nil || [theUID isKindOfClass:[NSString class]] == NO || [theUID isEqualToString:@""]) {
+		// UID ERROR
+		return nil;
+	}
+	
+	NSString *modelpath = [modeldir stringByAppendingFormat:@"/%@", theUID];
+	
+	if (![FCFileManager isFileItemAtPath:modelpath]) {
+		// FILE NOT EXIST
+		return nil;
+	}
+	
+	return [NSKeyedUnarchiver unarchiveObjectWithFile:modelpath];
+}
+
 @end
