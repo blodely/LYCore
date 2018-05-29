@@ -40,6 +40,14 @@
 	return copy;
 }
 
+- (NSString *)description {
+	return [NSString stringWithFormat:@"\n\n%@\n\t%@\n\tUID\t%@",
+				NSStringFromClass([self class]),
+				[NSHomeDirectory() stringByAppendingFormat:@"/Documents/%@/%@", NSStringFromClass([self class]), _UID],
+				_UID
+			];
+}
+
 #pragma mark - PUBLIC METHOD
 
 - (void)persist {
