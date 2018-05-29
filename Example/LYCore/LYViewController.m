@@ -36,6 +36,13 @@
 	
 	[[LYCore core] logError:@"HELLO ERROR"];
 	[[LYCore core] logWarning:@"Hello, warnings"];
+	
+	LYModel *modeltest = [[LYModel alloc] init];
+	modeltest.UID = @"lalala";
+	[modeltest persist];
+	
+	LYModel *one = [LYModel modelByUID:@"lalala"];
+	NSLog(@"MODEL TEST %@", one);
 }
 
 - (void)didReceiveMemoryWarning {
