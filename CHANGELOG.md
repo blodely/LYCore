@@ -4,8 +4,9 @@ documented project changes.
 
 ---
 
-## [1.0.17]
+## [1.0.18]
 
+model read out method
 post update user info notification
 fix target date
 
