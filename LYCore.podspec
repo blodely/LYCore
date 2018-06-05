@@ -5,7 +5,7 @@
 
 Pod::Spec.new do |s|
 	s.name             = 'LYCore'
-	s.version          = '1.0.18'
+	s.version          = '1.0.19'
 	s.summary          = 'Core libs for iOS app.'
 
 	s.description      = <<-DESC
@@ -21,7 +21,7 @@ Core library 4 iOS app.
 
 	s.ios.deployment_target = '8.0'
 
-	s.source_files = 'LYCore/Classes/network/*', 'LYCore/Classes/model/*', 'LYCore/Configuration/*.plist', 'LYCore/Classes/*' #'LYCore/Classes/**/*'
+	s.source_files = 'LYCore/Classes/network/*', 'LYCore/Classes/model/*', 'LYCore/Classes/category/*', 'LYCore/Configuration/*.plist', 'LYCore/Classes/*' #'LYCore/Classes/**/*'
   
   # s.resource_bundles = {
   #   'LYCore' => ['LYCore/Assets/*.png']
