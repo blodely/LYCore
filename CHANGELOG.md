@@ -4,6 +4,10 @@ documented project changes.
 
 ---
 
+## [1.0.19]
+
+add theme color
+
 ## [1.0.18]
 
 model read out method
