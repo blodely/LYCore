@@ -78,6 +78,14 @@
 										success:(void (^)(id ret))success
 										failure:(void (^)(NSError *error))failure;
 
+- (NSURLSessionDataTask *)POSTFormURLString:(NSString *)URLString binary:(id)data
+								 parameters:(NSDictionary *)param
+									   name:(NSString *)name
+								   filename:(NSString *)filename
+								   mimeType:(NSString *)mimetype
+								   progress:(void (^)(float percent))progress
+									success:(void (^)(id ret))success
+									failure:(void (^)(NSError *))failure;
 
 - (void)GETImageURLString:(NSString *)URLString
 				  success:(void (^)(UIImage *image))success

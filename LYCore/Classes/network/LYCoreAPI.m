@@ -185,6 +185,30 @@
 	return datatask;
 }
 
+- (NSURLSessionDataTask *)POSTFormURLString:(NSString *)URLString binary:(id)data
+								 parameters:(NSDictionary *)param
+									   name:(NSString *)name
+								   filename:(NSString *)filename
+								   mimeType:(NSString *)mimetype
+								   progress:(void (^)(float percent))progress
+									success:(void (^)(id ret))success
+									failure:(void (^)(NSError *))failure {
+	
+	NSURLSessionDataTask *datatask = [absolute POST:URLString parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+		
+		[formData appendPartWithFileData:data name:name fileName:filename mimeType:mimetype];
+		
+	} progress:^(NSProgress * _Nonnull uploadProgress) {
+		progress(uploadProgress.completedUnitCount / uploadProgress.totalUnitCount);
+	} success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+		success(responseObject);
+	} failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+		failure(error);
+	}];
+	
+	return datatask;
+}
+
 - (void)GETImageURLString:(NSString *)URLString success:(void (^)(UIImage *))success failure:(void (^)(NSError *))failure {
 	
 	if (URLString == nil || ![URLString isKindOfClass:[NSString class]] || [URLString isEqualToString:@""]) {
