@@ -114,7 +114,7 @@
 		
 		// SUCCESS
 		success(resp);
-		NSLog(@"\n\nREQUEST(GET) SUCCESS\n\tAPI\t%@\n", URLString);
+		NSLog(@"\n\nREQUEST(GET) ✅SUCCESS\n\tAPI\t%@\n", URLString);
 		
 	} failure:^(NSURLSessionDataTask *task, NSError *error) {
 		// REQUEST FAILED
@@ -136,7 +136,7 @@
 		
 		// SUCCESS
 		success(resp);
-		NSLog(@"\n\nREQUEST(POST) SUCCESS\n\tAPI\t%@\n", URLString);
+		NSLog(@"\n\nREQUEST(POST) ✅SUCCESS\n\tAPI\t%@\n", URLString);
 		
 	} failure:^(NSURLSessionDataTask *task, NSError *error) {
 		// REQUEST FAILED
@@ -156,13 +156,13 @@
 		
 		// SUCCESS
 		success(resp);
-		NSLog(@"\n\nREQUEST(GET) SUCCESS\n\tABSOLUTE\t%@\n", URLString);
+		NSLog(@"\n\nREQUEST(GET) ✅SUCCESS\n\tABSOLUTE\t%@\n", URLString);
 		
 	} failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
 		
 		// FAILED
 		failure(error);
-		NSLog(@"\n\nREQUEST(GET) FAILED\n\tABSOLUTE\t%@\n", URLString);
+		NSLog(@"\n\nREQUEST(GET) ❎FAILED\n\tABSOLUTE\t%@\n", URLString);
 	}];
 	
 	return datatask;
@@ -175,11 +175,11 @@
 	} success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable resp) {
 		// SUCCESS
 		success(resp);
-		NSLog(@"\n\nREQUEST(POST) SUCCESS\n\tABSOLUTE\t%@\n", URLString);
+		NSLog(@"\n\nREQUEST(POST) ✅SUCCESS\n\tABSOLUTE\t%@\n", URLString);
 	} failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
 		// FAILED
 		failure(error);
-		NSLog(@"\n\nREQUEST(POST) FAILED\n\tABSOLUTE\t%@\n", URLString);
+		NSLog(@"\n\nREQUEST(POST) ❎FAILED\n\tABSOLUTE\t%@\n", URLString);
 	}];
 	
 	return datatask;
@@ -202,8 +202,10 @@
 		progress(uploadProgress.completedUnitCount / uploadProgress.totalUnitCount);
 	} success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
 		success(responseObject);
+		NSLog(@"\n\nREQUEST(POST-FORMDATA) ✅SUCCESS\n\tABSOLUTE\t%@\n\n", URLString);
 	} failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
 		failure(error);
+		NSLog(@"\n\nREQUEST(POST-FORMDATA) ❎FAILED\n\tURL\t%@\n\n", URLString);
 	}];
 	
 	return datatask;
