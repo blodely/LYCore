@@ -4,9 +4,10 @@ documented project changes.
 
 ---
 
-## [1.0.20]
+## [1.0.21]
 
 post form-data request
+request log
 
 ## [1.0.19]
 
