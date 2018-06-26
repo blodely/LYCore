@@ -156,7 +156,7 @@
 		
 		// SUCCESS
 		success(resp);
-		NSLog(@"\n\nREQUEST(GET) ✅SUCCESS\n\tABSOLUTE\t%@\n", URLString);
+		// NSLog(@"\n\nREQUEST(GET) ✅SUCCESS\n\tABSOLUTE\t%@\n", URLString);
 		
 	} failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
 		
@@ -175,7 +175,7 @@
 	} success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable resp) {
 		// SUCCESS
 		success(resp);
-		NSLog(@"\n\nREQUEST(POST) ✅SUCCESS\n\tABSOLUTE\t%@\n", URLString);
+		// NSLog(@"\n\nREQUEST(POST) ✅SUCCESS\n\tABSOLUTE\t%@\n", URLString);
 	} failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
 		// FAILED
 		failure(error);
