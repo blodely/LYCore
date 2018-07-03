@@ -30,6 +30,13 @@
 		<key>conf-value</key>
 		<string>dev.luoyu.space</string>
 	</dict>
+	<key>core-net-timeout</key>
+	<dict>
+		<key>name</key>
+		<string>Core Networking Timeout Interval</string>
+		<key>conf-value</key>
+		<integer>7</integer>
+	</dict>
 	<key>core-net-api-path</key>
 	<dict>
 		<key>name</key>
