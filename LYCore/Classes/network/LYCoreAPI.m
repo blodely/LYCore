@@ -81,6 +81,9 @@
 	// "Accept-Language" = "zh-Hans-CN;q=1";
 	// "User-Agent" = "AppUATemplate/1.0.0 (iPhone; iOS 10.1; Scale/2.00)";
 	manager.requestSerializer = requestSerializer;
+	
+	// SET TIMEOUT
+	manager.requestSerializer.timeoutInterval = [[[LYCore core] valueForConfWithKey:@"core-net-timeout"] doubleValue];
 }
 
 - (void)setDebug:(BOOL)debug {
