@@ -84,6 +84,7 @@
 	
 	// SET TIMEOUT
 	manager.requestSerializer.timeoutInterval = [[[LYCore core] valueForConfWithKey:@"core-net-timeout"] doubleValue];
+	absolute.requestSerializer.timeoutInterval = [[[LYCore core] valueForConfWithKey:@"core-net-timeout"] doubleValue];
 }
 
 - (void)setDebug:(BOOL)debug {
