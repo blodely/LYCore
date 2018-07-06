@@ -4,8 +4,9 @@ documented project changes.
 
 ---
 
-## [1.0.21]
+## [1.0.23]
 
+timeout interval
 post form-data request
 request log
 
