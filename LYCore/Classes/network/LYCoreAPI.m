@@ -219,6 +219,7 @@
 	
 	if (URLString == nil || ![URLString isKindOfClass:[NSString class]] || [URLString isEqualToString:@""]) {
 		// URL STRING NOT VALID
+		failure(nil);
 		return;
 	}
 	
