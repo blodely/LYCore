@@ -14,6 +14,8 @@
 #import <LYCore/LYUser.h>
 #import <LYCategory/LYCategory.h>
 #import <LYCore/UIImageView+LYCoreNetwork.h>
+#import <LYCore/UIColor+LYCore.h>
+
 
 FOUNDATION_EXPORT NSString *const LIB_LYCORE_BUNDLE_ID;
 
