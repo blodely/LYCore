@@ -43,6 +43,10 @@
 	
 	LYModel *one = [LYModel modelByUID:@"lalala"];
 	NSLog(@"MODEL TEST %@", one);
+	
+	[[LYCoreAPI core] networkingReachability:^(AFNetworkReachabilityStatus status) {
+		NSLog(@"called - networking changed");
+	}];
 }
 
 - (void)didReceiveMemoryWarning {
