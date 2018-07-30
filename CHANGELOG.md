@@ -4,11 +4,12 @@ documented project changes.
 
 ---
 
-## [1.0.23]
+## [1.0.24]
 
 timeout interval
 post form-data request
 request log
+networking reachability
 
 ## [1.0.19]
 
