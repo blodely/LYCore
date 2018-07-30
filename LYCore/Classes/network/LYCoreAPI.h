@@ -25,6 +25,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AFNetworking/AFNetworkReachabilityManager.h>
 
 @interface LYCoreAPI : NSObject
 
@@ -39,6 +40,11 @@
  @return instance
  */
 + (instancetype)core;
+
+/**
+ monitoring networking reachability
+ */
+- (void)networkingReachability:(void (^)(AFNetworkReachabilityStatus status))statusChangeBlock;
 
 /**
  make GET request

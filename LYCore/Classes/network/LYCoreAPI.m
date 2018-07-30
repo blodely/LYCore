@@ -123,6 +123,39 @@
 	[self initialManager];
 }
 
+- (void)networkingReachability:(void (^)(AFNetworkReachabilityStatus status))statusChangeBlock {
+	
+	AFNetworkReachabilityManager *nmgr = [AFNetworkReachabilityManager sharedManager];
+	
+	[nmgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+		switch (status) {
+			case AFNetworkReachabilityStatusUnknown: {
+				NSLog(@"\nLYCoreAPI\n\tReachability\n\tUnknown Networking Status\n");
+			}
+				break;
+			case AFNetworkReachabilityStatusNotReachable: {
+				NSLog(@"\nLYCoreAPI\n\tReachability\n\tNot Reachable\n");
+			}
+				break;
+			case AFNetworkReachabilityStatusReachableViaWiFi: {
+				NSLog(@"\nLYCoreAPI\n\tReachability\n\tWiFi\n");
+			}
+				break;
+			case AFNetworkReachabilityStatusReachableViaWWAN: {
+				NSLog(@"\nLYCoreAPI\n\tReachability\n\tMobile\n");
+			}
+				break;
+			default: {
+				NSLog(@"\nLYCoreAPI\n\tReachability\n\tDefault\n");
+			}
+				break;
+		}
+		statusChangeBlock(status);
+	}];
+	
+	[nmgr startMonitoring];
+}
+
 // MARK: - REQUEST
 
 - (NSURLSessionDataTask *)GETURLString:(NSString *)URLString
