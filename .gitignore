@@ -21,6 +21,9 @@ DerivedData
 Pods
 Podfile.lock
 
+*.xcworkspace/
+*.xcworkspacedata
+
 #Vim
 *.swp
 
