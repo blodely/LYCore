@@ -24,6 +24,7 @@
 //	SOFTWARE.
 //
 
+
 #import <Foundation/Foundation.h>
 #import <LYCore/LYCore.h>
 #import <LYCore/LYCoreAPI.h>
@@ -34,6 +35,11 @@
 #import <LYCore/UIImageView+LYCoreNetwork.h>
 #import <LYCore/UIColor+LYCore.h>
 
+//! Project version number for LYCore.
+FOUNDATION_EXPORT double LYCoreVersionNumber;
+
+//! Project version string for LYCore.
+FOUNDATION_EXPORT const unsigned char LYCoreVersionString[];
 
 FOUNDATION_EXPORT NSString *const LIB_LYCORE_BUNDLE_ID;
 

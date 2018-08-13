@@ -26,7 +26,7 @@
 
 #import "LYModel.h"
 #import "LYCore.h"
-#import "FCFileManager.h"
+#import <FCFileManager/FCFileManager.h>
 
 @interface LYModel ()
 @end

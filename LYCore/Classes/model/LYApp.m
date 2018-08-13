@@ -25,7 +25,7 @@
 //
 
 #import "LYApp.h"
-#import "FCFileManager.h"
+#import <FCFileManager/FCFileManager.h>
 
 NSString *const NOTIF_USER_UPDATED = @"notif.ly.app.user.updated";
 NSString *const NOTIF_USER_LOGOUT = @"notif.ly.app.user.logout";

@@ -25,6 +25,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIImage.h>
 #import <AFNetworking/AFNetworkReachabilityManager.h>
 
 @interface LYCoreAPI : NSObject
