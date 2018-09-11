@@ -51,6 +51,13 @@
 		<key>conf-value</key>
 		<string>/api</string>
 	</dict>
+	<key>core-net-force-absolute-json</key>
+	<dict>
+		<key>name</key>
+		<string>Core Networking API : force absolute manager to parse everything as json</string>
+		<key>conf-value</key>
+		<false/>
+	</dict>
 	<key>core-net-is-secure-transport</key>
 	<dict>
 		<key>name</key>
