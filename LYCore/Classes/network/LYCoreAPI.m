@@ -93,6 +93,10 @@
 	responseSerializer.acceptableContentTypes = types;
 	manager.responseSerializer = responseSerializer;
 	
+	if ([[[LYCore core] valueForConfWithKey:@"core-net-force-absolute-json"] boolValue]) {
+		absolute.responseSerializer = responseSerializer;
+	}
+	
 	AFHTTPRequestSerializer *requestSerializer = manager.requestSerializer;
 	[requestSerializer setValue:@"gzip" forHTTPHeaderField:@"Accept-Encoding"];
 	[requestSerializer setValue:@"utf-8" forHTTPHeaderField:@"Accept-Charset"];
