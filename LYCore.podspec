@@ -21,7 +21,7 @@ Core library 4 iOS app.
 
 	s.ios.deployment_target = '8.0'
 
-	s.source_files = 'LYCore/Classes/network/*', 'LYCore/Classes/model/*', 'LYCore/Classes/category/*', 'LYCore/Configuration/*.plist', 'LYCore/Classes/*' #'LYCore/Classes/**/*'
+	s.source_files = 'LYCore/Classes/network/*', 'LYCore/Classes/model/*', 'LYCore/Classes/viewc/*', 'LYCore/Classes/category/*', 'LYCore/Configuration/*.plist', 'LYCore/Classes/*' #'LYCore/Classes/**/*'
   
   # s.resource_bundles = {
   #   'LYCore' => ['LYCore/Assets/*.png']
@@ -34,5 +34,6 @@ Core library 4 iOS app.
   s.dependency 'FCFileManager', '~> 1.0.20'
   
   s.ios.dependency 'LYCategory'
+  s.ios.dependency 'Masonry', '~> 1.1.0'
   
 end

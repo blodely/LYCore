@@ -20,6 +20,8 @@ PODS:
     - AFNetworking (~> 3.2.1)
     - FCFileManager (~> 1.0.20)
     - LYCategory
+    - Masonry (~> 1.1.0)
+  - Masonry (1.1.0)
 
 DEPENDENCIES:
   - LYCore (from `../`)
@@ -29,6 +31,7 @@ SPEC REPOS:
     - AFNetworking
     - FCFileManager
     - LYCategory
+    - Masonry
 
 EXTERNAL SOURCES:
   LYCore:
@@ -38,7 +41,8 @@ SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   FCFileManager: e0f73316e6aa2eb04d2ff4caa75fe7df1ae44270
   LYCategory: 3806b9c1f017b30c1fda43064fd7c0766c89678f
-  LYCore: 44b5fef8c3ce111bbacbaf87c5f75d153ea10559
+  LYCore: d649acc391e5f2186637d349e89abdaae9f469ab
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
 PODFILE CHECKSUM: 5e9398a2502b730af0235853feb7fd706fe9950e
 
