@@ -16,10 +16,35 @@
 
 @implementation LYViewController
 
+// MARK: - ACTION
+
+- (IBAction)showWebViewButtonPressed:(id)sender {
+	
+	LYWebViewController *web = [[LYWebViewController alloc] init];
+	web.URLString = @"https://github.com";
+	[self.navigationController pushViewController:web animated:YES];
+}
+
+// MARK: - INIT
+
 - (instancetype)init {
 	if (self = [super initWithNibName:@"LYViewController" bundle:[NSBundle mainBundle]]) {
 	}
 	return self;
+}
+
+- (void)loadView {
+	[super loadView];
+	
+	{
+		// DEMO APP
+		self.navigationItem.title = @"LYCore Demo";
+		for (id view in [self.view subviews]) {
+			if ([view isKindOfClass:[UIButton class]]) {
+				[view border1Px];
+			}
+		}
+	}
 }
 
 - (void)viewDidLoad {
