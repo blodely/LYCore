@@ -20,6 +20,8 @@
 	
 	[_window makeKeyAndVisible];
 	
+	[[UINavigationBar appearance] setTranslucent:NO];
+	
     return YES;
 }
 

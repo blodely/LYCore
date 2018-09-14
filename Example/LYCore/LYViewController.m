@@ -21,7 +21,7 @@
 - (IBAction)showWebViewButtonPressed:(id)sender {
 	
 	LYWebViewController *web = [[LYWebViewController alloc] init];
-	web.URLString = @"https://github.com";
+	web.URLString = @"https://github.com/blodely";
 	[self.navigationController pushViewController:web animated:YES];
 }
 
