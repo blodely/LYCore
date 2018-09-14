@@ -28,7 +28,7 @@
 #import <WebKit/WebKit.h>
 #import <Masonry/Masonry.h>
 #import <LYCategory/LYCategory.h>
-
+#import "UIColor+LYCore.h"
 
 @interface LYWebViewController () {
 	
@@ -51,7 +51,6 @@
 - (void)initial {
 	
 	{
-		self.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 		self.view.backgroundColor = [UIColor whiteColor];
 	}
 	
@@ -60,22 +59,47 @@
 		WKWebView *webview = [[WKWebView alloc] initWithFrame:CGRectZero configuration:wconf];
 		[self.view addSubview:webview];
 		web = webview;
-		
+
 		[webview mas_makeConstraints:^(MASConstraintMaker *make) {
 			make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
 		}];
+	}
+	
+	{
+		UIProgressView *progressview = [[UIProgressView alloc] initWithFrame:CGRectZero];
+		[self.view addSubview:progressview];
+		progress = progressview;
+		
+		progress.tintColor = [UIColor coreThemeColor];
+		progress.backgroundColor = [UIColor clearColor];
+		[self.view bringSubviewToFront:progress];
+		
+		[progressview mas_makeConstraints:^(MASConstraintMaker *make) {
+			make.left.right.equalTo(self.view).offset(0);
+			make.top.equalTo(self.view).offset(0);
+		}];
+	}
+	
+	{
+		// LISTEN WEB VIEW EVENT
+		[web addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:NULL];
 	}
 }
 
 // MARK: VIEW LIFE CYCLE
 
-- (void)loadView {
-	[super loadView];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 	// DO ANY ADDITIONAL SETUP AFTER LOADING THE VIEW.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+}
+
+- (void)dealloc {
+	
+	[web removeObserver:self forKeyPath:@"estimatedProgress"];
 }
 
 // MARK: - METHOD
@@ -99,5 +123,23 @@
 // MARK: - NOTIFICATION
 
 // MARK:
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+	
+	if ([keyPath isEqualToString:@"estimatedProgress"] && object == web) {
+		progress.alpha = 1.0f;
+		[progress setProgress:web.estimatedProgress animated:YES];
+		
+		if (web.estimatedProgress >= 1.0f) {
+			[UIView animateWithDuration:ANIMATE delay:ANIMATE options:UIViewAnimationOptionCurveEaseOut animations:^{
+				self->progress.alpha = 0;
+			} completion:^(BOOL finished) {
+				self->progress.progress = 0.0f;
+			}];
+		}
+	} else {
+		[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+	}
+}
 
 @end

@@ -31,6 +31,7 @@
 @interface LYWebViewController : UIViewController {
 	
 	__weak WKWebView *web;
+	__weak UIProgressView *progress;
 }
 
 @property (nonatomic, strong) NSString *URLString;
