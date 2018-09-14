@@ -4,6 +4,11 @@ documented project changes.
 
 ---
 
+## [1.0.26]
+
+add web view with progress bar;
+core api manager.
+
 ## [1.0.24]
 
 timeout interval
