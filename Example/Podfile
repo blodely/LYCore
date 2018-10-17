@@ -5,12 +5,6 @@ platform :ios, '9.0'
 
 use_frameworks!
 
-target 'LYCore_Example' do
-  pod 'LYCore', :path => '../'
-
-  target 'LYCore_Tests' do
-    inherit! :search_paths
-
-    
-  end
+target 'demo' do
+	pod 'LYCore', :path => '../'
 end
