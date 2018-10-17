@@ -36,6 +36,7 @@
 #import <LYCore/UIColor+LYCore.h>
 #import <LYCore/LYWebViewController.h>
 #import <LYCore/UINavigationController+LYCore.h>
+#import <LYCore/UIViewController+LYCore.h>
 
 
 //! Project version number for LYCore.

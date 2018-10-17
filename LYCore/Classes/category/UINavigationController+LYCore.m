@@ -33,7 +33,9 @@
 	if (isAuth) {
 		[self pushViewController:viewController animated:YES];
 	} else {
-		action();
+		if (action != nil) {
+			action();
+		}
 	}
 }
 
