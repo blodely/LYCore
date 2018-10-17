@@ -35,6 +35,8 @@
 #import <LYCore/UIImageView+LYCoreNetwork.h>
 #import <LYCore/UIColor+LYCore.h>
 #import <LYCore/LYWebViewController.h>
+#import <LYCore/UINavigationController+LYCore.h>
+
 
 //! Project version number for LYCore.
 FOUNDATION_EXPORT double LYCoreVersionNumber;
