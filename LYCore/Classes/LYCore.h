@@ -32,11 +32,6 @@
 #import <LYCore/LYApp.h>
 #import <LYCore/LYUser.h>
 #import <LYCategory/LYCategory.h>
-#import <LYCore/UIImageView+LYCoreNetwork.h>
-#import <LYCore/UIColor+LYCore.h>
-#import <LYCore/LYWebViewController.h>
-#import <LYCore/UINavigationController+LYCore.h>
-#import <LYCore/UIViewController+LYCore.h>
 
 
 //! Project version number for LYCore.
@@ -82,7 +77,13 @@ FOUNDATION_EXPORT NSString *const LIB_LYCORE_BUNDLE_ID;
 
 @end
 
+#import <LYCore/UIImageView+LYCoreNetwork.h>
+#import <LYCore/UIColor+LYCore.h>
+#import <LYCore/UINavigationController+LYCore.h>
+#import <LYCore/UIViewController+LYCore.h>
+
 #import <LYCore/LYView.h>
 #import <LYCore/LYTableCell.h>
 #import <LYCore/LYCollectionCell.h>
-
+#import <LYCore/LYBaseViewController.h>
+#import <LYCore/LYWebViewController.h>
