@@ -81,3 +81,6 @@ FOUNDATION_EXPORT NSString *const LIB_LYCORE_BUNDLE_ID;
 - (NSString *)logWarning:(NSString *)format, ... NS_FORMAT_FUNCTION(1,2);
 
 @end
+
+#import <LYCore/LYView.h>
+
