@@ -28,7 +28,20 @@
 
 @interface LYLine : LYView
 
+/**
+ create a line view with specified hex color string background color.
+
+ @param hexColor hex color string
+ @return an instance of LYLine view
+ */
 + (instancetype)lineWithHexColor:(NSString *)hexColor;
+
+/**
+ create a line view instance with specified color as background color.
+
+ @param backgroundColor color
+ @return an instance of LYLine view
+ */
 + (instancetype)lineWithColor:(UIColor *)backgroundColor;
 
 @end
