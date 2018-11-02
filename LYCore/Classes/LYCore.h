@@ -83,6 +83,7 @@ FOUNDATION_EXPORT NSString *const LIB_LYCORE_BUNDLE_ID;
 #import <LYCore/UIViewController+LYCore.h>
 
 #import <LYCore/LYView.h>
+#import <LYCore/LYNavBar.h>
 #import <LYCore/LYTableCell.h>
 #import <LYCore/LYCollectionCell.h>
 #import <LYCore/LYBaseViewController.h>
