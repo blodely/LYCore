@@ -47,11 +47,12 @@
 
 - (void)initial {
 	// SET DEFAULT BG COLOR
+	self.clipsToBounds = YES;
 	self.backgroundColor = [UIColor whiteColor];
 }
 
 + (instancetype)navbar {
-	return [[LYNavBar alloc] initWithFrame:CGRectZero];
+	return [[[self class] alloc] initWithFrame:CGRectZero];
 }
 
 // MARK: - METHOD
