@@ -120,9 +120,10 @@ NSString *const NOTIF_USER_LOGOUT = @"notif.ly.app.user.logout";
 	LYUser *user = [[LYUser alloc] init];
 	user.UID = _userID;
 	user.token = values[@"token"];
-	user.name = values[@"name"];
 	user.mobile = values[@"mobile"];
+	user.name = values[@"name"];
 	user.gender = [values[@"gender"] integerValue] == 1 ? LYUserGenderMale : LYUserGenderFemale;
+	user.avatar = values[@"avatar"];
 	user.userInfo = values[@"userInfo"];
 
 	[user persist];
