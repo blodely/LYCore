@@ -28,6 +28,17 @@
 
 
 @interface LYControl : UIControl
+
+/**
+ initial method
+ */
 - (void)initial;
+
+/**
+ instance creator
+
+ @return an instance
+ */
 + (instancetype)control;
+
 @end

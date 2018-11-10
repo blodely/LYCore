@@ -28,7 +28,18 @@
 
 
 @interface LYView : UIView
+
+/**
+ initial method
+ */
 - (void)initial;
+
+/**
+ instance creator
+
+ @return an instance
+ */
 + (instancetype)view;
+
 @end
 

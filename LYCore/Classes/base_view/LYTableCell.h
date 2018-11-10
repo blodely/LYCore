@@ -30,6 +30,9 @@ FOUNDATION_EXPORT NSString *const LYTableCellIdentifier;
 
 @interface LYTableCell : UITableViewCell
 
+/**
+ initial method
+ */
 - (void)initial;
 
 @end

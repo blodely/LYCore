@@ -31,6 +31,9 @@ FOUNDATION_EXPORT NSString *const LYCollectionCellIdentifier;
 
 @interface LYCollectionCell : UICollectionViewCell
 
+/**
+ initial method
+ */
 - (void)initial;
 
 @end

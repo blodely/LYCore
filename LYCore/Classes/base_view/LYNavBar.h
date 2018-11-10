@@ -29,7 +29,16 @@
 
 @interface LYNavBar : UIView
 
+/**
+ nav bar view instance creator
+
+ @return an instance
+ */
 + (instancetype)navbar;
+
+/**
+ initial method
+ */
 - (void)initial;
 
 @end
