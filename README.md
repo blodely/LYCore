@@ -4,14 +4,7 @@ General core lib for apps.
 
 ### How to use:
 
-Add following code to the top of your project's `Podfile`.
-
-```ruby
-source 'https://github.com/blodely/LYSpecs.git'
-source 'https://github.com/CocoaPods/Specs.git'
-```
-
-Then, `pod 'LYCore'`.
+Simply add`pod 'LYCore'`, then run 'pod install'.
 
 #### configure networking env
 
@@ -58,7 +51,7 @@ or
 
 Simply add category to LYCoreAPI, then you can write your own specified request method.
 
-example: 
+example:
 
 **LYCoreAPI+Example.h**
 
