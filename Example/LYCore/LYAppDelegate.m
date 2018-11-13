@@ -8,6 +8,8 @@
 
 #import "LYAppDelegate.h"
 #import "LYViewController.h"
+#import <LYCore/LYCore.h>
+
 
 @implementation LYAppDelegate
 
@@ -21,6 +23,9 @@
 	[_window makeKeyAndVisible];
 	
 	[[UINavigationBar appearance] setTranslucent:NO];
+	
+	[LYCore core].debug = YES;
+	[LYCoreAPI core].debug = YES;
 	
     return YES;
 }

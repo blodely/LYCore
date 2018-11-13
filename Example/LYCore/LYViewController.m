@@ -25,6 +25,13 @@
 	[self.navigationController pushViewController:web animated:YES];
 }
 
+- (IBAction)showLocationOfHere:(id)sender {
+	
+	[[LYApp current] updateLocation:^(CLLocationCoordinate2D coordinate, NSString *placeName) {
+		NSLog(@"\n\n%@\nlatitude=%@\nlongitude=%@\n", placeName, @(coordinate.latitude), @(coordinate.longitude));
+	}];
+}
+
 // MARK: - INIT
 
 - (instancetype)init {

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,12 +30,25 @@
                         <action selector="showWebViewButtonPressed:" destination="-1" eventType="touchUpInside" id="Kpj-qT-sCH"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BC9-cj-YhG">
+                    <rect key="frame" x="16" y="152" width="343" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="yTf-Qs-6hK"/>
+                    </constraints>
+                    <state key="normal" title="location"/>
+                    <connections>
+                        <action selector="showLocationOfHere:" destination="-1" eventType="touchUpInside" id="Ref-vd-el4"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="hYM-UL-xqd" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="80" id="8X6-DI-75u"/>
+                <constraint firstItem="BC9-cj-YhG" firstAttribute="trailing" secondItem="hYM-UL-xqd" secondAttribute="trailing" id="Fva-k8-bxd"/>
+                <constraint firstItem="BC9-cj-YhG" firstAttribute="leading" secondItem="hYM-UL-xqd" secondAttribute="leading" id="Oon-JB-sSE"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="hYM-UL-xqd" secondAttribute="trailing" constant="16" id="Qat-Pr-yO3"/>
                 <constraint firstItem="hYM-UL-xqd" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="16" id="pdF-iP-zzL"/>
+                <constraint firstItem="BC9-cj-YhG" firstAttribute="top" secondItem="hYM-UL-xqd" secondAttribute="bottom" constant="16" id="zxY-uI-AHc"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <point key="canvasLocation" x="132" y="142.57871064467767"/>
