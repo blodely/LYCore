@@ -28,7 +28,7 @@ Core library 4 iOS app.
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  s.frameworks = 'Foundation', 'UIKit'
+  s.frameworks = 'Foundation', 'UIKit', 'CoreLocation'
   
   s.dependency 'AFNetworking', '~> 3.2.1'
   s.dependency 'FCFileManager', '~> 1.0.20'

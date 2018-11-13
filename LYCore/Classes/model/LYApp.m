@@ -26,11 +26,17 @@
 
 #import "LYApp.h"
 #import <FCFileManager/FCFileManager.h>
+#import <CoreLocation/CoreLocation.h>
+
 
 NSString *const NOTIF_USER_UPDATED = @"notif.ly.app.user.updated";
 NSString *const NOTIF_USER_LOGOUT = @"notif.ly.app.user.logout";
 
-@interface LYApp () {
+typedef void(^LYAppLocationUpdatedBlock)(CLLocationCoordinate2D coordinate, CLPlacemark *place);
+
+@interface LYApp () <CLLocationManagerDelegate> {
+	LYAppLocationUpdatedBlock updatedBlock;
+	CLLocationManager *locmgr;
 }
 @end
 
@@ -162,6 +168,29 @@ NSString *const NOTIF_USER_LOGOUT = @"notif.ly.app.user.logout";
 	[self persist];
 }
 
+- (void)updateLocation:(void (^)(CLLocationCoordinate2D, CLPlacemark *))action {
+	
+	if (action != nil) {
+		updatedBlock = action;
+	}
+	
+	if (locmgr == nil) {
+		locmgr = [[CLLocationManager alloc] init];
+	}
+	
+	locmgr.delegate = self;
+	locmgr.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+	
+	if ([CLLocationManager locationServicesEnabled]) {
+		[locmgr startUpdatingLocation];
+		
+		[LYCore core].debug ? NSLog(@"\n\nLYApp BEGIN UPDATING LOCATION\n") : 0;
+	} else {
+		[LYCore core].debug ? NSLog(@"\n\nLYApp CANNOT UPDATE LOCATION\nDUE TO SERVICE DISABLED\n") : 0;
+	}
+	
+}
+
 #pragma mark PRIVATE METHOD
 
 - (void)synchronize {
@@ -208,6 +237,68 @@ NSString *const NOTIF_USER_LOGOUT = @"notif.ly.app.user.logout";
 			@(_badge),
 			_lastLoginName,
 			NSHomeDirectory(), self.UID];
+}
+
+// MARK: - DELEGATE
+
+// MARK: CLLocationManagerDelegate
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+	
+	[manager stopUpdatingLocation];
+	[[LYCore core] logWarning:@"STOP LOCATING"];
+	
+	CLGeocoder *geocdr = [[CLGeocoder alloc] init];
+	if (@available(iOS 11.0, *)) {
+		[geocdr reverseGeocodeLocation:locations.firstObject preferredLocale:[NSLocale localeWithLocaleIdentifier:@"zh_CN"] completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+			
+			if (self->updatedBlock == nil) {
+				[[LYCore core] logWarning:@"BLOCK NOT FOUND"];
+				return;
+			}
+			
+			if (error) {
+				self->updatedBlock(kCLLocationCoordinate2DInvalid, nil);
+				[[LYCore core] logError:@"LOCATING ERROR"];
+				return;
+			}
+			
+			CLPlacemark *place = placemarks.firstObject;
+			self->updatedBlock(place.location.coordinate, place);
+		}];
+	} else {
+		// FALLBACK ON EARLIER VERSIONS
+		[geocdr reverseGeocodeLocation:locations.firstObject completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+			
+			if (self->updatedBlock == nil) {
+				[[LYCore core] logWarning:@"BLOCK NOT FOUND"];
+				return;
+			}
+			
+			if (error) {
+				self->updatedBlock(kCLLocationCoordinate2DInvalid, nil);
+				[[LYCore core] logError:@"LOCATING ERROR"];
+				return;
+			}
+			
+			CLPlacemark *place = placemarks.firstObject;
+			self->updatedBlock(place.location.coordinate, place);
+		}];
+	}
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+	
+	[[LYCore core] logError:@"LOCATING FAILED"];
+	
+	[manager stopUpdatingLocation];
+	[[LYCore core] logWarning:@"STOP LOCATING"];
+	
+	if (updatedBlock == nil) {
+		[[LYCore core] logWarning:@"BLOCK NOT FOUND"];
+	} else {
+		updatedBlock(kCLLocationCoordinate2DInvalid, nil);
+	}
 }
 
 @end

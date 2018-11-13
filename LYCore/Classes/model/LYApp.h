@@ -27,6 +27,9 @@
 #import <Foundation/Foundation.h>
 #import <LYCore/LYCore.h>
 #import <LYCore/LYModel.h>
+#import <CoreLocation/CLLocation.h>
+#import <CoreLocation/CLPlacemark.h>
+
 
 @class LYUser;
 
@@ -87,5 +90,7 @@ FOUNDATION_EXPORT NSString *const NOTIF_USER_LOGOUT;
  @param targetDate target date
  */
 - (void)updateTargetDate:(NSDate *)targetDate;
+
+- (void)updateLocation:(void (^)(CLLocationCoordinate2D coordinate, CLPlacemark *place))action;
 
 @end
