@@ -4,6 +4,10 @@ documented project changes.
 
 ---
 
+## [1.0.31]
+
+add locating feature to LYApp.
+
 ## [1.0.26]
 
 add web view with progress bar;
