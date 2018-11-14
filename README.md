@@ -55,7 +55,7 @@ example:
 
 **LYCoreAPI+Example.h**
 
-```objective-c
+```objc
 #import <LYCore/LYCore.h>
 
 @interface LYCoreAPI (Example)
@@ -73,7 +73,7 @@ this add an api error block for project error code handling.
 
 **LYCoreAPI+Example.m**
 
-```objective-c
+```objc
 #import "LYCoreAPI+Example.h"
 
 @implementation LYCoreAPI (Example)
@@ -90,6 +90,20 @@ this add an api error block for project error code handling.
     return datatask;
 }
 @end
+```
+
+### Locating
+
+Core lib now can use CoreLocation to get current placemark, start with 1.0.31.
+
+usage:
+
+```objc
+[[LYApp current] updateLocation:^(CLLocationCoordinate2D coordinate, CLPlacemark *place) {
+	// IF 'place' IS NOT NIL,
+	// MEANS SUCCESSFULLY GET CURRENT LOCATION PLACEMARK.
+	NSLog("%@", place);
+}];
 ```
 
 ### Author
