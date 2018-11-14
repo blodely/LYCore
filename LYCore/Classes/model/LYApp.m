@@ -194,7 +194,18 @@ typedef void(^LYAppLocationUpdatedBlock)(CLLocationCoordinate2D coordinate, CLPl
 			// RESTRICTED
 		case kCLAuthorizationStatusDenied: {
 			// DENIED
-			[UIAlertController showAlertFromView:[UIApplication sharedApplication].keyWindow.rootViewController withTitle:@"We need your location permission." andMessage:@"Change permission in Settings" cancelButtonTitle:@"Got it" confirmButtonTitle:@"Settings" confirmAction:^{
+			
+			NSString *title = [[LYCore core] valueForConfWithKey:@"core-location-denied-title"];
+			NSString *message = [[LYCore core] valueForConfWithKey:@"core-location-denied-message"];
+			NSString *cancel = [[LYCore core] valueForConfWithKey:@"core-location-denied-cancel"];
+			NSString *confirm = [[LYCore core] valueForConfWithKey:@"core-location-denied-settings"];
+			
+			[UIAlertController showAlertFromView:[UIApplication sharedApplication].keyWindow.rootViewController
+			withTitle:(title == nil ? @"We need your location permission." : title)
+			andMessage:(message == nil ? @"Change permission in Settings" : message)
+			cancelButtonTitle:(cancel == nil ? @"Got it" : cancel)
+			confirmButtonTitle:(confirm == nil ? @"Settings" : confirm)
+			confirmAction:^{
 				[[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
 			}];
 		} break;
