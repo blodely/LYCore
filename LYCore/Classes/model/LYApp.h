@@ -91,6 +91,18 @@ FOUNDATION_EXPORT NSString *const NOTIF_USER_LOGOUT;
  */
 - (void)updateTargetDate:(NSDate *)targetDate;
 
+/**
+ ask locating permission
+
+ @param action allowed action
+ */
+- (void)askPermissionOfLocating:(void (^)(void))action;
+
+/**
+ update location and get current location placemark
+
+ @param action finish block
+ */
 - (void)updateLocation:(void (^)(CLLocationCoordinate2D coordinate, CLPlacemark *place))action;
 
 @end

@@ -168,6 +168,43 @@ typedef void(^LYAppLocationUpdatedBlock)(CLLocationCoordinate2D coordinate, CLPl
 	[self persist];
 }
 
+- (void)askPermissionOfLocating:(void (^)(void))action {
+	
+	if (locmgr == nil) {
+		locmgr = [[CLLocationManager alloc] init];
+		locmgr.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+	}
+	
+	locmgr.delegate = self;
+	
+	switch ([CLLocationManager authorizationStatus]) {
+		case kCLAuthorizationStatusNotDetermined: {
+			// FIRST OPEN APP
+			// ASK FOR PERMISSION
+			[locmgr requestWhenInUseAuthorization];
+		} break;
+		case kCLAuthorizationStatusAuthorizedAlways:
+			// ALREADY AUTH 'ALWAYS'
+		case kCLAuthorizationStatusAuthorizedWhenInUse: {
+			// ALREADY AUTH 'WHEN IN USE'
+			// PASS
+			action();
+		} break;
+		case kCLAuthorizationStatusRestricted:
+			// RESTRICTED
+		case kCLAuthorizationStatusDenied: {
+			// DENIED
+			[UIAlertController showAlertFromView:[UIApplication sharedApplication].keyWindow.rootViewController withTitle:@"We need your location permission." andMessage:@"Change permission in Settings" cancelButtonTitle:@"Got it" confirmButtonTitle:@"Settings" confirmAction:^{
+				[[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+			}];
+		} break;
+		default:
+			break;
+	}
+	
+	
+}
+
 - (void)updateLocation:(void (^)(CLLocationCoordinate2D, CLPlacemark *))action {
 	
 	if (action != nil) {
@@ -176,10 +213,10 @@ typedef void(^LYAppLocationUpdatedBlock)(CLLocationCoordinate2D coordinate, CLPl
 	
 	if (locmgr == nil) {
 		locmgr = [[CLLocationManager alloc] init];
+		locmgr.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
 	}
 	
 	locmgr.delegate = self;
-	locmgr.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
 	
 	if ([CLLocationManager locationServicesEnabled]) {
 		[locmgr startUpdatingLocation];
@@ -299,6 +336,10 @@ typedef void(^LYAppLocationUpdatedBlock)(CLLocationCoordinate2D coordinate, CLPl
 	} else {
 		updatedBlock(kCLLocationCoordinate2DInvalid, nil);
 	}
+}
+
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+	[[LYCore core] logWarning:@"LOCATION MANAGER AUTH STATUS %@", @(status)];
 }
 
 @end
