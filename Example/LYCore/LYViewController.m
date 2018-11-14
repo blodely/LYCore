@@ -27,8 +27,13 @@
 
 - (IBAction)showLocationOfHere:(id)sender {
 	
-	[[LYApp current] updateLocation:^(CLLocationCoordinate2D coordinate, NSString *placeName) {
-		NSLog(@"\n\n%@\nlatitude=%@\nlongitude=%@\n", placeName, @(coordinate.latitude), @(coordinate.longitude));
+	[[LYApp current] askPermissionOfLocating:^{
+		[[LYApp current] updateLocation:^(CLLocationCoordinate2D coordinate, CLPlacemark *place) {
+			NSLog(@"\n\nLatitude: %@\nLongitude: %@\nPLACEMARK: %@",
+				  @(coordinate.latitude),
+				  @(coordinate.longitude),
+				  place);
+		}];
 	}];
 }
 
