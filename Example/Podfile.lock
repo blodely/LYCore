@@ -16,7 +16,7 @@ PODS:
     - AFNetworking/NSURLSession
   - FCFileManager (1.0.20)
   - LYCategory (1.2.36)
-  - LYCore (1.0.31):
+  - LYCore (1.0.33):
     - AFNetworking (~> 3.2.1)
     - FCFileManager (~> 1.0.20)
     - LYCategory
@@ -41,7 +41,7 @@ SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   FCFileManager: e0f73316e6aa2eb04d2ff4caa75fe7df1ae44270
   LYCategory: f1adf05255125d89ca333982c28a652043fee2c2
-  LYCore: 0c3b50f1d56e3e2ffd9d051f8d2f514fdf5ef75a
+  LYCore: 51eb7f899a362e527babcd1665c60d1e080efd09
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
 PODFILE CHECKSUM: a84bf5dcadbd62574b7eecb0a9468d2892de9345
