@@ -4,6 +4,11 @@ documented project changes.
 
 ---
 
+## [1.0.34]
+
+work around AFHTTP memory leak problem.
+PLEASE use [LYCoreAPI core:(BOOL)] to first initialize instance.
+
 ## [1.0.31]
 
 add locating feature to LYApp.
