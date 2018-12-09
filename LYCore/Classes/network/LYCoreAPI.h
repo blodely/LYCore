@@ -33,7 +33,7 @@
 /**
  toggle debug mode
  */
-@property (nonatomic, assign) BOOL debug;
+@property (nonatomic, readonly) BOOL debug;
 
 /**
  get core api singleton
@@ -41,6 +41,8 @@
  @return instance
  */
 + (instancetype)core;
+
++ (instancetype)core:(BOOL)debugMode;
 
 /**
  monitoring networking reachability

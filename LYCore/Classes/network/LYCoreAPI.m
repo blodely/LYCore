@@ -45,19 +45,24 @@
 
 // MARK: - INIT
 
-+ (instancetype)core {
++ (instancetype)core:(BOOL)debugMode {
 	static LYCoreAPI *sharedLYCoreAPI;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-		sharedLYCoreAPI = [[LYCoreAPI alloc] init];
+		sharedLYCoreAPI = [[LYCoreAPI alloc] initWithDebugMode:debugMode];
 	});
 	return sharedLYCoreAPI;
 }
 
-- (instancetype)init {
++ (instancetype)core {
+	// DEBUG MODE PARAMETER WILL BE IGNORED
+	return [self core:NO];
+}
+
+- (instancetype)initWithDebugMode:(BOOL)debugMode {
 	if (self = [super init]) {
 		
-		_debug = NO;
+		_debug = debugMode;
 		
 		if (_debug) {
 			// DEBUG VERSION
@@ -77,8 +82,13 @@
 }
 
 - (void)initialManager {
-	manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithFormat:@"%@%@", PROTOCOL, BASE_URL]];
-	absolute = [[AFHTTPSessionManager alloc] init];
+	if (manager == nil) {
+		manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithFormat:@"%@%@", PROTOCOL, BASE_URL]];
+	}
+	
+	if (absolute == nil) {
+		absolute = [[AFHTTPSessionManager alloc] init];
+	}
 	
 	// SETUP JSON FORMAT
 	AFHTTPResponseSerializer *responseSerializer = manager.responseSerializer;
@@ -107,24 +117,6 @@
 	// SET TIMEOUT
 	manager.requestSerializer.timeoutInterval = [[[LYCore core] valueForConfWithKey:@"core-net-timeout"] doubleValue];
 	absolute.requestSerializer.timeoutInterval = [[[LYCore core] valueForConfWithKey:@"core-net-timeout"] doubleValue];
-}
-
-- (void)setDebug:(BOOL)debug {
-	_debug = debug;
-	
-	if (_debug) {
-		// DEBUG VERSION
-		PROTOCOL = [[LYCore core] valueForConfWithKey:@"core-net-is-secure-transport-dev"];
-		BASE_URL = [[LYCore core] valueForConfWithKey:@"core-net-domain-dev"];
-		API = [[LYCore core] valueForConfWithKey:@"core-net-api-path-dev"];
-	} else {
-		// PRODUCTION VERSION
-		PROTOCOL = [[LYCore core] valueForConfWithKey:@"core-net-is-secure-transport"];
-		BASE_URL = [[LYCore core] valueForConfWithKey:@"core-net-domain"];
-		API = [[LYCore core] valueForConfWithKey:@"core-net-api-path"];
-	}
-	
-	[self initialManager];
 }
 
 - (void)networkingReachability:(void (^)(AFNetworkReachabilityStatus status))statusChangeBlock {
