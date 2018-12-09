@@ -25,7 +25,8 @@
 	[[UINavigationBar appearance] setTranslucent:NO];
 	
 	[LYCore core].debug = YES;
-	[LYCoreAPI core].debug = YES;
+	
+	[LYCoreAPI core:YES];
 	
     return YES;
 }
