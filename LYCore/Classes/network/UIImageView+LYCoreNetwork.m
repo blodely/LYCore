@@ -34,7 +34,9 @@
 - (void)setImageWithURLString:(NSString *)URLString andPlaceholderNamed:(NSString *)imageName {
 	
 	// SET PLACEHOLDER IMAGE AT FIRST
-	self.image = [UIImage imageNamed:imageName];
+	dispatch_async(dispatch_get_main_queue(), ^{
+		[self setImage:[UIImage imageNamed:imageName]];
+	});
 	
 	if (URLString == nil || ![URLString isKindOfClass:[NSString class]] || [URLString isEqualToString:@""]) {
 		// URL STRING NOT VALID
@@ -55,7 +57,9 @@
 		
 		if (cachedResp.data) {
 			// FOUND HDD CACHE
-			self.image = [UIImage imageWithData:cachedResp.data];
+			dispatch_async(dispatch_get_main_queue(), ^{
+				[self setImage:[UIImage imageWithData:cachedResp.data]];
+			});
 		} else {
 			// NOTHING WAS FOUND
 			// REQUEST FROM WEB
@@ -63,7 +67,9 @@
 		}
 		
 	} else {
-		self.image = memCached;
+		dispatch_async(dispatch_get_main_queue(), ^{
+			[self setImage:memCached];
+		});
 	}
 }
 
