@@ -91,6 +91,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	// DO ANY ADDITIONAL SETUP AFTER LOADING THE VIEW.
+	
+	if (self.navigationController != nil) {
+		self.navigationItem.title = self.title != nil ? self.title : @"";
+	}
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -131,7 +135,8 @@
 		[progress setProgress:web.estimatedProgress animated:YES];
 		
 		if (web.estimatedProgress >= 1.0f) {
-			[UIView animateWithDuration:ANIMATE delay:ANIMATE options:UIViewAnimationOptionCurveEaseOut animations:^{
+			// DELAY ONE SECOND TO DISMISS PROGRESS BAR
+			[UIView animateWithDuration:ANIMATE delay:1 options:UIViewAnimationOptionCurveEaseOut animations:^{
 				self->progress.alpha = 0;
 			} completion:^(BOOL finished) {
 				self->progress.progress = 0.0f;
