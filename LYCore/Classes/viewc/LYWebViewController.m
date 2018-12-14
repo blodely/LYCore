@@ -99,6 +99,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
+	
+	[self.navigationController setNavigationBarHidden:_navbarHidden animated:animated];
 }
 
 - (void)dealloc {

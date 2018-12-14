@@ -35,6 +35,7 @@
 }
 
 @property (nonatomic, strong) NSString *URLString;
+@property (nonatomic, assign) BOOL navbarHidden;
 
 - (void)initial;
 
