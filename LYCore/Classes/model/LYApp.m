@@ -185,6 +185,7 @@ typedef void(^LYAppLocationUpdatedBlock)(CLLocationCoordinate2D coordinate, CLPl
 		} break;
 		case kCLAuthorizationStatusAuthorizedAlways:
 			// ALREADY AUTH 'ALWAYS'
+			action();
 		case kCLAuthorizationStatusAuthorizedWhenInUse: {
 			// ALREADY AUTH 'WHEN IN USE'
 			// PASS
