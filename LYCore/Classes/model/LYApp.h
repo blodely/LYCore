@@ -95,8 +95,9 @@ FOUNDATION_EXPORT NSString *const NOTIF_USER_LOGOUT;
  ask locating permission
 
  @param action allowed action
+ @param viewctl view controller
  */
-- (void)askPermissionOfLocating:(void (^)(void))action;
+- (void)askPermissionOfLocating:(void (^)(void))action from:(UIViewController *)viewctl;
 
 /**
  update location and get current location placemark

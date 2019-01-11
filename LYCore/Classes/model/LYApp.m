@@ -168,7 +168,7 @@ typedef void(^LYAppLocationUpdatedBlock)(CLLocationCoordinate2D coordinate, CLPl
 	[self persist];
 }
 
-- (void)askPermissionOfLocating:(void (^)(void))action {
+- (void)askPermissionOfLocating:(void (^)(void))action from:(UIViewController *)viewctl {
 	
 	if (locmgr == nil) {
 		locmgr = [[CLLocationManager alloc] init];
@@ -201,7 +201,7 @@ typedef void(^LYAppLocationUpdatedBlock)(CLLocationCoordinate2D coordinate, CLPl
 			NSString *cancel = [[LYCore core] valueForConfWithKey:@"core-location-denied-cancel"];
 			NSString *confirm = [[LYCore core] valueForConfWithKey:@"core-location-denied-settings"];
 			
-			[UIAlertController showAlertFromView:[UIApplication sharedApplication].keyWindow.rootViewController
+			[UIAlertController showAlertFromView:(viewctl != nil ? viewctl : [UIApplication sharedApplication].keyWindow.rootViewController)
 			withTitle:(title == nil ? @"We need your location permission." : title)
 			andMessage:(message == nil ? @"Change permission in Settings" : message)
 			cancelButtonTitle:(cancel == nil ? @"Got it" : cancel)
