@@ -34,7 +34,7 @@
 				  @(coordinate.longitude),
 				  place);
 		}];
-	}];
+	} from:self];
 }
 
 // MARK: - INIT
