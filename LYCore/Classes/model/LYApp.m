@@ -27,6 +27,7 @@
 #import "LYApp.h"
 #import <FCFileManager/FCFileManager.h>
 #import <CoreLocation/CoreLocation.h>
+#import <UIKit/UIKit.h>
 
 
 NSString *const NOTIF_USER_UPDATED = @"notif.ly.app.user.updated";

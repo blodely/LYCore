@@ -31,6 +31,7 @@
 #import <CoreLocation/CLPlacemark.h>
 
 
+@class UIViewController;
 @class LYUser;
 
 FOUNDATION_EXPORT NSString *const NOTIF_USER_UPDATED;
