@@ -27,10 +27,10 @@
 #import <Foundation/Foundation.h>
 #import <LYCore/LYModel.h>
 
-typedef NS_ENUM(NSUInteger, LYUserGender) {
-	LYUserGenderFemale,
-	LYUserGenderMale,
-	LYUserGenderNull,
+typedef NS_ENUM(NSInteger, LYUserGender) {
+	LYUserGenderFemale = 0,
+	LYUserGenderMale = 1,
+	LYUserGenderNull = -1,
 };
 
 @interface LYUser : LYModel

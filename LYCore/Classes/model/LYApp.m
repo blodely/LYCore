@@ -129,7 +129,7 @@ typedef void(^LYAppLocationUpdatedBlock)(CLLocationCoordinate2D coordinate, CLPl
 	user.token = values[@"token"];
 	user.mobile = values[@"mobile"];
 	user.name = values[@"name"];
-	user.gender = [values[@"gender"] integerValue] == 1 ? LYUserGenderMale : LYUserGenderFemale;
+	user.gender = ([values[@"gender"] integerValue] == 1 ? LYUserGenderMale : ([values[@"gender"] integerValue] == 0 ? LYUserGenderFemale : LYUserGenderNull));
 	user.avatar = values[@"avatar"];
 	user.userInfo = values[@"userInfo"];
 

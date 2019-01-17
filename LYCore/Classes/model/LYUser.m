@@ -60,7 +60,7 @@
 - (NSUInteger)hash {
 	NSUInteger hash = [self.mobile hash];
 	hash = hash * 31u + [self.name hash];
-	hash = hash * 31u + (NSUInteger) self.gender;
+	hash = hash * 31u + (NSInteger) self.gender;
 	hash = hash * 31u + [self.avatar hash];
 	hash = hash * 31u + [self.userInfo hash];
 	return hash;
