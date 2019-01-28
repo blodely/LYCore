@@ -35,5 +35,6 @@ Core library 4 iOS app.
   
   s.ios.dependency 'LYCategory'
   s.ios.dependency 'Masonry', '~> 1.1.0'
+  s.ios.dependency 'WebViewJavascriptBridge', '~> 6.0.3'
   
 end
