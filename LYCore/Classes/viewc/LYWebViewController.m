@@ -84,6 +84,11 @@
 		// LISTEN WEB VIEW EVENT
 		[web addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:NULL];
 	}
+	
+	{
+		// INITIAL BRIDGE CLASS
+		bridge = [WebViewJavascriptBridge bridgeForWebView:web];
+	}
 }
 
 // MARK: VIEW LIFE CYCLE

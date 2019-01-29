@@ -25,6 +25,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <WebViewJavascriptBridge/WebViewJavascriptBridge.h>
 
 @class WKWebView;
 
@@ -32,6 +33,7 @@
 	
 	__weak WKWebView *web;
 	__weak UIProgressView *progress;
+	WebViewJavascriptBridge *bridge;
 }
 
 @property (nonatomic, strong) NSString *URLString;
