@@ -40,13 +40,24 @@
                         <action selector="showLocationOfHere:" destination="-1" eventType="touchUpInside" id="Ref-vd-el4"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ztl-39-v5K">
+                    <rect key="frame" x="16" y="196" width="343" height="36"/>
+                    <state key="normal" title="show a test web view"/>
+                    <connections>
+                        <action selector="showATestWebView:" destination="-1" eventType="touchUpInside" id="leQ-zR-jVg"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="hYM-UL-xqd" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="80" id="8X6-DI-75u"/>
+                <constraint firstItem="ztl-39-v5K" firstAttribute="leading" secondItem="BC9-cj-YhG" secondAttribute="leading" id="8pj-rP-nUL"/>
+                <constraint firstItem="ztl-39-v5K" firstAttribute="top" secondItem="BC9-cj-YhG" secondAttribute="bottom" constant="8" id="FMq-bt-8wU"/>
                 <constraint firstItem="BC9-cj-YhG" firstAttribute="trailing" secondItem="hYM-UL-xqd" secondAttribute="trailing" id="Fva-k8-bxd"/>
                 <constraint firstItem="BC9-cj-YhG" firstAttribute="leading" secondItem="hYM-UL-xqd" secondAttribute="leading" id="Oon-JB-sSE"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="hYM-UL-xqd" secondAttribute="trailing" constant="16" id="Qat-Pr-yO3"/>
+                <constraint firstItem="ztl-39-v5K" firstAttribute="trailing" secondItem="BC9-cj-YhG" secondAttribute="trailing" id="nS8-9k-Vhn"/>
+                <constraint firstItem="ztl-39-v5K" firstAttribute="height" secondItem="BC9-cj-YhG" secondAttribute="height" id="o0p-mK-F7Y"/>
                 <constraint firstItem="hYM-UL-xqd" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="16" id="pdF-iP-zzL"/>
                 <constraint firstItem="BC9-cj-YhG" firstAttribute="top" secondItem="hYM-UL-xqd" secondAttribute="bottom" constant="16" id="zxY-uI-AHc"/>
             </constraints>
