@@ -29,4 +29,6 @@
 
 @interface UIImageView (LYCore)
 
+- (void)setAnimationImageURLs:(NSArray<NSString *> *)animationImgURLs;
+
 @end
