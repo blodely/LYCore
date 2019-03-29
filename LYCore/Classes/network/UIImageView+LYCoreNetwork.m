@@ -83,4 +83,12 @@
 	[self setImageWithURL:[NSURL URLWithString:URLString] placeholderImage:[UIImage imageNamed:imageName inBundle:bundle compatibleWithTraitCollection:nil]];
 }
 
+- (void)setAnimationImageURLs:(NSArray<NSString *> *)animationImgURLs {
+	// TODO: IMAGE URLS TO SHOW AS ANIMATION
+	for (NSInteger i = 0; i < [animationImgURLs count]; i++) {
+		NSString *URL = animationImgURLs[i];
+		NSLog(@"%@", URL);
+	}
+}
+
 @end

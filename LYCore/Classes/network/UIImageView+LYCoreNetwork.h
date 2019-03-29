@@ -32,4 +32,6 @@
 
 - (void)setImageWithURLString:(NSString *)URLString andPlaceholderNamed:(NSString *)imageName inBundle:(NSBundle *)bundle;
 
+- (void)setAnimationImageURLs:(NSArray<NSString *> *)animationImgURLs;
+
 @end
