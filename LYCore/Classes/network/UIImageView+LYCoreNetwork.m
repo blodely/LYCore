@@ -85,10 +85,23 @@
 
 - (void)setAnimationImageURLs:(NSArray<NSString *> *)animationImgURLs {
 	// TODO: IMAGE URLS TO SHOW AS ANIMATION
-	for (NSInteger i = 0; i < [animationImgURLs count]; i++) {
-		NSString *URL = animationImgURLs[i];
-		NSLog(@"%@", URL);
-	}
+	dispatch_async(dispatch_get_global_queue(0, 0), ^{
+		NSMutableArray *imgs = [NSMutableArray arrayWithCapacity:1];
+		for (NSInteger i = 0; i < [animationImgURLs count]; i++) {
+			NSString *URL = animationImgURLs[i];
+			if ([[URL lowercaseString] hasPrefix:@"http://"] && [[URL lowercaseString] hasPrefix:@"https://"]) {
+				NSData *dimg = [NSData dataWithContentsOfURL:[NSURL URLWithString:URL]];
+				if (dimg != nil) {
+					UIImage *image = [UIImage imageWithData:dimg];
+					[imgs addObject:image];
+				}
+			}
+		}
+		NSArray *ret = [NSArray arrayWithArray:imgs];
+		dispatch_async(dispatch_get_main_queue(), ^{
+			self.animationImages = ret;
+		});
+	});
 }
 
 @end
