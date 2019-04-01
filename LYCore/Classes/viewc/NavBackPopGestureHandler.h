@@ -28,6 +28,19 @@
 #import <UIKit/UIKit.h>
 
 
-@interface NavBackPopGestureHandler : NSObject
+@interface NavBackPopGestureHandler : NSObject <UIGestureRecognizerDelegate>
+
+/**
+ Hold view controller's navigation controller.
+ */
+@property (nonatomic, strong) UINavigationController *navigationController;
+
+/**
+ Initial with current view controller's navigation controller.
+
+ @param navctrl navigation controller
+ @return self instance
+ */
+- (instancetype)initWithController:(UINavigationController *)navctrl;
 
 @end

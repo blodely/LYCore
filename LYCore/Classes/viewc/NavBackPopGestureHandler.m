@@ -29,4 +29,25 @@
 
 @implementation NavBackPopGestureHandler
 
+// MARK: - INIT
+
+- (instancetype)initWithController:(UINavigationController *)navctrl {
+	if (self = [super init]) {
+		_navigationController = navctrl;
+	}
+	return self;
+}
+
+// MARK: - DELEGATE
+
+// MARK: UIGestureRecognizerDelegate
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+	return _navigationController.viewControllers.count > 1;
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+	return YES;
+}
+
 @end
