@@ -43,4 +43,16 @@
 	return [[[self class] alloc] init];
 }
 
+// MARK: - METHOD
+
+/**
+ overwrite -description method
+
+ @return description string.
+ */
+- (NSString *)description {
+	return [NSString stringWithFormat:@"%@ > %@\n",
+			NSStringFromClass([self class]), NSStringFromCGRect(self.frame)];
+}
+
 @end
