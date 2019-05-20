@@ -29,6 +29,6 @@
 
 @interface UIViewController (LYCore)
 
-- (void)presentViewController:(UIViewController *)viewControllerToPresent authorized:(BOOL)isAuth failure:(void (^)(void))failure completion:(void (^)(void))completion;
+//- (void)presentViewController:(UIViewController *)viewControllerToPresent authorized:(BOOL)isAuth failure:(void (^)(void))failure completion:(void (^)(void))completion;
 
 @end

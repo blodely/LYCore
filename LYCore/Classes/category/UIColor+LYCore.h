@@ -28,6 +28,11 @@
 
 @interface UIColor (LYCore)
 
+/**
+ core lib theme color
+
+ @return theme color instance
+ */
 + (UIColor *)coreThemeColor;
 
 @end

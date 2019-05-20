@@ -29,6 +29,6 @@
 
 @interface UINavigationController (LYCore)
 
-- (void)pushViewController:(UIViewController *)viewController authorized:(BOOL)isAuth failure:(void (^)(void))action;
+//- (void)pushViewController:(UIViewController *)viewController authorized:(BOOL)isAuth failure:(void (^)(void))action;
 
 @end

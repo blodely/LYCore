@@ -35,6 +35,13 @@
 
 // MARK: - INIT
 
+- (instancetype)init {
+	if (self = [super initWithFrame:(CGRect){0, 0, WIDTH, 44}]) {
+		[self initial];
+	}
+	return self;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame {
 	frame.origin = CGPointZero;
 	frame.size.width = WIDTH;

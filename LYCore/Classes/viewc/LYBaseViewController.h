@@ -29,7 +29,16 @@
 
 @interface LYBaseViewController : UIViewController
 
+/**
+ called when initial class.
+ */
 - (void)initial;
+
+/**
+ class method to get a current class's instance.
+
+ @return instance
+ */
 + (instancetype)vc;
 
 @end
