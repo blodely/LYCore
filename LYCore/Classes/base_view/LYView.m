@@ -27,7 +27,9 @@
 #import "LYView.h"
 
 @implementation LYView
-	
+
+// MARK: - INIT
+
 - (instancetype)initWithFrame:(CGRect)frame {
 	if (self = [super initWithFrame:frame]) {
 		[self initial];
