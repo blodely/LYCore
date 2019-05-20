@@ -29,6 +29,8 @@
 
 @implementation LYControl
 
+// MARK: - INIT
+
 - (instancetype)initWithFrame:(CGRect)frame {
 	if (self = [super initWithFrame:frame]) {
 		[self initial];
@@ -42,6 +44,15 @@
 
 + (instancetype)control {
 	return [[[self class] alloc] init];
+}
+
+// MARK: - METHOD
+
+- (NSString *)description {
+	return [NSString stringWithFormat:@"%@ > %@",
+			NSStringFromClass([self class]),	// Class name
+			NSStringFromCGRect(self.frame)		// View frame
+			];
 }
 
 @end
