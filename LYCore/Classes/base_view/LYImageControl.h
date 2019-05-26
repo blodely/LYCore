@@ -28,5 +28,5 @@
 
 
 @interface LYImageControl : LYControl
-
+@property (nonatomic, weak) UIImageView *imageView;
 @end

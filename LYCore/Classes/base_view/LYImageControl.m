@@ -25,7 +25,22 @@
 //
 
 #import "LYImageControl.h"
+#import <Masonry/Masonry.h>
 
 
 @implementation LYImageControl
+
+- (void)initial {
+	[super initial];
+	
+	{
+		UIImageView *view = [[UIImageView alloc] init];
+		[self addSubview:view];
+		_imageView = view;
+		
+		[view mas_makeConstraints:^(MASConstraintMaker *make) {
+			make.edges.equalTo(self);
+		}];
+	}
+}
 @end
