@@ -28,5 +28,5 @@
 
 
 @interface LYLabelControl : LYControl
-
+@property (nonatomic, weak) UILabel *label;
 @end
