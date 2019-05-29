@@ -33,7 +33,10 @@
 - (void)initial {
 	[super initial];
 	
+	self.backgroundColor = [UIColor clearColor];
+	
 	{
+		// MARK: Image view
 		UIImageView *view = [[UIImageView alloc] init];
 		[self addSubview:view];
 		_imageView = view;

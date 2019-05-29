@@ -34,7 +34,10 @@
 - (void)initial {
 	[super initial];
 	
+	self.backgroundColor = [UIColor clearColor];
+	
 	{
+		// MARK: Label
 		UILabel *view = [[UILabel alloc] init];
 		[self addSubview:view];
 		_label = view;
