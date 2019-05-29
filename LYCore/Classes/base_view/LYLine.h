@@ -26,6 +26,9 @@
 
 #import <LYCore/LYCore.h>
 
+/**
+ View for seperator line: set clips to bound, with user interaction disabled.
+ */
 @interface LYLine : LYView
 
 /**

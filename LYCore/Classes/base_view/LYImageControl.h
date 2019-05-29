@@ -27,6 +27,9 @@
 #import <LYCore/LYControl.h>
 
 
+/**
+ Control with a image view inside.
+ */
 @interface LYImageControl : LYControl
 @property (nonatomic, weak) UIImageView *imageView;
 @end

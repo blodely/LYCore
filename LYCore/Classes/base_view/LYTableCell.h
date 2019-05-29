@@ -28,6 +28,9 @@
 
 FOUNDATION_EXPORT NSString *const LYTableCellIdentifier;
 
+/**
+ General table view cell base class.
+ */
 @interface LYTableCell : UITableViewCell
 
 /**

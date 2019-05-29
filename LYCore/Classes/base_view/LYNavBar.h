@@ -27,6 +27,9 @@
 #import <UIKit/UIKit.h>
 
 
+/**
+ View for nav bar.
+ */
 @interface LYNavBar : UIView
 
 /**

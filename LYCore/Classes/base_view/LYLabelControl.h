@@ -27,6 +27,9 @@
 #import <LYCore/LYControl.h>
 
 
+/**
+ Control with a label inside.
+ */
 @interface LYLabelControl : LYControl
 @property (nonatomic, weak) UILabel *label;
 @end

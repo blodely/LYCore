@@ -27,6 +27,9 @@
 #import <UIKit/UIKit.h>
 
 
+/**
+ General view base class.
+ */
 @interface LYView : UIView
 
 /**
