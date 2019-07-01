@@ -27,7 +27,9 @@
 #import <UIKit/UIKit.h>
 
 
-@interface LYBaseViewController : UIViewController
+@interface LYBaseViewController : UIViewController {
+	BOOL lightStatusbar;
+}
 
 /**
  called when initial class.
@@ -40,5 +42,12 @@
  @return instance
  */
 + (instancetype)vc;
+
+/**
+ update statusbar style
+
+ @param lightStyle style light content or not
+ */
+- (void)updateStatusbarLight:(BOOL)lightStyle;
 
 @end
