@@ -26,6 +26,9 @@
 
 #import <UIKit/UIKit.h>
 
+
+// MARK: - LYTableCell
+
 FOUNDATION_EXPORT NSString *const LYTableCellIdentifier;
 
 /**
@@ -38,4 +41,9 @@ FOUNDATION_EXPORT NSString *const LYTableCellIdentifier;
  */
 - (void)initial;
 
+@end
+
+// MARK: - LYSeperatorTableCell
+FOUNDATION_EXPORT NSString *const LYSeperatorTableCellIdentifier;
+@interface LYSeperatorTableCell : LYTableCell
 @end
