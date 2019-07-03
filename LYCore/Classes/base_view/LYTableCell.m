@@ -66,10 +66,14 @@ NSString *const LYSeperatorTableCellIdentifier = @"LYSeperatorTableCellIdentifie
 	[super initial];
 	
 	self.backgroundColor = [UIColor clearColor];
+	self.selectionStyle = UITableViewCellSelectionStyleNone;
+	self.clipsToBounds = YES;
 	
 	{
 		LYLine *view = [LYLine lineWithColor:[UIColor groupTableViewBackgroundColor]];
 		[self addSubview:view];
+		_line = view;
+		
 		[view mas_makeConstraints:^(MASConstraintMaker *make) {
 			make.edges.equalTo(self);
 			make.height.mas_equalTo(10);

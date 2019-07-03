@@ -44,6 +44,8 @@ FOUNDATION_EXPORT NSString *const LYTableCellIdentifier;
 @end
 
 // MARK: - LYSeperatorTableCell
+#import <LYCore/LYLine.h>
 FOUNDATION_EXPORT NSString *const LYSeperatorTableCellIdentifier;
 @interface LYSeperatorTableCell : LYTableCell
+@property (nonatomic, weak) LYLine *line;
 @end
