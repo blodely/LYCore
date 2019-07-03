@@ -56,7 +56,12 @@ NSString *const LYTableCellIdentifier = @"LYTableCellIdentifier";
 
 @end
 
+
+// MARK: - LYSeperatorTableCell
+
 #import <Masonry/Masonry.h>
+#import <LYCore/LYCore.h>
+
 
 NSString *const LYSeperatorTableCellIdentifier = @"LYSeperatorTableCellIdentifier";
 
