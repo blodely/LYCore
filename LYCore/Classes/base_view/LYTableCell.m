@@ -25,6 +25,7 @@
 //
 
 #import "LYTableCell.h"
+#import <LYCore/LYLine.h>
 
 
 NSString *const LYTableCellIdentifier = @"LYTableCellIdentifier";
@@ -51,6 +52,38 @@ NSString *const LYTableCellIdentifier = @"LYTableCellIdentifier";
 	[super setSelected:selected animated:animated];
 
 	// CONFIGURE THE VIEW FOR THE SELECTED STATE
+}
+
+@end
+
+
+// MARK: - LYSeperatorTableCell
+
+#import <Masonry/Masonry.h>
+#import <LYCore/LYCore.h>
+
+
+NSString *const LYSeperatorTableCellIdentifier = @"LYSeperatorTableCellIdentifier";
+
+@implementation  LYSeperatorTableCell
+
+- (void)initial {
+	[super initial];
+	
+	self.backgroundColor = [UIColor clearColor];
+	self.selectionStyle = UITableViewCellSelectionStyleNone;
+	self.clipsToBounds = YES;
+	
+	{
+		LYLine *view = [LYLine lineWithColor:[UIColor groupTableViewBackgroundColor]];
+		[self addSubview:view];
+		_line = view;
+		
+		[view mas_makeConstraints:^(MASConstraintMaker *make) {
+			make.edges.equalTo(self);
+			make.height.mas_equalTo(10);
+		}];
+	}
 }
 
 @end

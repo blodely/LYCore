@@ -24,7 +24,8 @@
 //	SOFTWARE.
 //
 
-#import <LYCore/LYCore.h>
+//#import <LYCore/LYCore.h>
+#import <LYCore/LYView.h>
 
 /**
  View for seperator line: set clips to bound, with user interaction disabled.

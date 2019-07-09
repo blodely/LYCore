@@ -70,10 +70,17 @@
 			BASE_URL = [[LYCore core] valueForConfWithKey:@"core-net-domain-dev"];
 			API = [[LYCore core] valueForConfWithKey:@"core-net-api-path-dev"];
 		} else {
-			// PRODUCTION VERSION
-			PROTOCOL = [[LYCore core] valueForConfWithKey:@"core-net-is-secure-transport"];
-			BASE_URL = [[LYCore core] valueForConfWithKey:@"core-net-domain"];
-			API = [[LYCore core] valueForConfWithKey:@"core-net-api-path"];
+			if ([LYCore core].debug) {
+				// PRE-PRODUCTION
+				PROTOCOL = [[LYCore core] valueForConfWithKey:@"core-net-is-secure-transport-pre"];
+				BASE_URL = [[LYCore core] valueForConfWithKey:@"core-net-domain-pre"];
+				API = [[LYCore core] valueForConfWithKey:@"core-net-api-path-pre"];
+			} else {
+				// PRODUCTION VERSION
+				PROTOCOL = [[LYCore core] valueForConfWithKey:@"core-net-is-secure-transport"];
+				BASE_URL = [[LYCore core] valueForConfWithKey:@"core-net-domain"];
+				API = [[LYCore core] valueForConfWithKey:@"core-net-api-path"];
+			}
 		}
 		
 		[self initialManager];

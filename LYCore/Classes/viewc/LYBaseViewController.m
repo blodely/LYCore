@@ -57,4 +57,17 @@
 	self.view.backgroundColor = [UIColor whiteColor];
 }
 
+// MARK: STATUSBAR
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+	return lightStatusbar ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault;
+}
+
+// MARK: - METHOD
+
+- (void)updateStatusbarLight:(BOOL)lightStyle {
+	lightStatusbar = lightStyle;
+	[self setNeedsStatusBarAppearanceUpdate];
+}
+
 @end
