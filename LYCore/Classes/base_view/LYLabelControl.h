@@ -39,8 +39,8 @@
 /**
  Label in view with long press callout menu.
  */
-@interface LYCalloutLabel : LYView
+@interface LYCalloutCopyLabel : LYView
 @property (nonatomic, weak) UILabel *label;
-- (void)addMenuItem:(NSString *)itemTitle;
-- (void)menuAction:(void (^)(NSString *title))action;
+- (void)setCopyTitle:(NSString *)title;
+- (void)calloutAction:(void (^)(void))action;
 @end

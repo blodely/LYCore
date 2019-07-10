@@ -9,8 +9,13 @@
 #import "LYViewController.h"
 #import <LYCore/LYCore.h>
 #import <FCFileManager/FCFileManager.h>
+#import <LYCore/LYLabelControl.h>
 
-@interface LYViewController ()
+
+@interface LYViewController () {
+	
+	__weak LYCalloutCopyLabel *lblCallout;
+}
 
 @end
 
@@ -60,6 +65,24 @@
 				[view border1Px];
 			}
 		}
+	}
+	
+	{
+		LYCalloutCopyLabel *view = [LYCalloutCopyLabel view];
+		[self.view addSubview:view];
+		lblCallout = view;
+		
+		lblCallout.frame = (CGRect){16, 240, WIDTH - 32, 30};
+		
+		[lblCallout border1Px];
+		lblCallout.label.font = [UIFont systemFontOfSize:14];
+		lblCallout.label.textColor = [UIColor blueColor];
+		lblCallout.label.text = @"long press callout";
+		
+		[lblCallout setCopyTitle:@"C o p y"];
+		[lblCallout calloutAction:^{
+			NSLog(@"copy action");
+		}];
 	}
 }
 

@@ -25,6 +25,7 @@
 //
 
 #import "LYLabelControl.h"
+#import <LYCategory/LYCategory.h>
 #import <LYCore/LYCore.h>
 #import <Masonry/Masonry.h>
 
@@ -82,21 +83,21 @@
 
 @end
 
-// MARK: - LYCalloutLabel
-#import <LYCategory/LYCategory.h>
+// MARK: - LYCalloutCopyLabel
 
-@interface LYCalloutLabel () {
-	NSMutableArray *menuItems;
-	LYCString blockMenu;
+@interface LYCalloutCopyLabel () {
+	NSString *copyTitle;
+	LYCCompletion blockCopy;
 }
 @end
-@implementation LYCalloutLabel
+
+@implementation LYCalloutCopyLabel
 
 - (void)longPressed:(id)sender {
 	[self becomeFirstResponder];
 	
 	UIMenuController *menuctl = [UIMenuController sharedMenuController];
-	menuctl.menuItems = menuItems;
+	menuctl.menuItems = @[[[UIMenuItem alloc] initWithTitle:copyTitle action:@selector(menuItemCopyTapped:)],];
 	[menuctl setTargetRect:self.bounds inView:self];
 	[menuctl setMenuVisible:YES animated:YES];
 }
@@ -105,7 +106,6 @@
 	[super initial];
 	
 	{
-		menuItems = [NSMutableArray arrayWithCapacity:1];
 		self.userInteractionEnabled = YES;
 		self.clipsToBounds = NO;
 		UILongPressGestureRecognizer *gesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressed:)];
@@ -129,28 +129,33 @@
 }
 
 - (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
-	if (action == @selector(menuItemAction:)) {
+	if (action == @selector(menuItemCopyTapped:)) {
 		return YES;
 	}
 	return NO;
 }
 
-- (void)menuItemAction:(UIMenuItem *)sender {
+- (void)menuItemCopyTapped:(id)sender {
 	if (sender == nil) {
 		return;
 	}
 	
-	if (blockMenu != nil) {
-		blockMenu(sender.title);
+	if (blockCopy != nil) {
+		blockCopy();
 	}
 }
 
-- (void)addMenuItem:(NSString *)itemTitle {
-	[menuItems addObject:[[UIMenuItem alloc] initWithTitle:itemTitle action:@selector(menuItemAction:)]];
+- (void)setCopyTitle:(NSString *)title {
+	if (title == nil || [title isKindOfClass:[NSString class]] == NO || [title isEqualToString:@""]) {
+		copyTitle = @"Copy";
+		return;
+	}
+	
+	copyTitle = title;
 }
 
-- (void)menuAction:(void (^)(NSString *))action {
-	blockMenu = action;
+- (void)calloutAction:(void (^)(void))action {
+	blockCopy = action;
 }
 
 @end
