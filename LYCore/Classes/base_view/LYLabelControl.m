@@ -29,6 +29,38 @@
 #import <Masonry/Masonry.h>
 
 
+// MARK: - LYBlockMenuItem
+
+@interface LYBlockMenuItem : UIMenuItem
+- (instancetype)initWithTitle:(NSString *)title action:(void (^)(void))action;
+@end
+
+@interface LYBlockMenuItem () {
+	LYCCompletion blockAction;
+}
+@end
+
+@implementation LYBlockMenuItem
+
+- (void)itemActionTriggered:(id)sender {
+	if (blockAction != nil) {
+		blockAction();
+	} else {
+		NSLog(@"BLOCK NOT FOUND");
+	}
+}
+
+- (instancetype)initWithTitle:(NSString *)title action:(void (^)(void))action {
+	if (self = [super initWithTitle:title action:@selector(itemActionTriggered:)]) {
+		blockAction = action;
+	}
+	return self;
+}
+
+@end
+
+// MARK: - LYLabelControl
+
 @implementation LYLabelControl
 
 - (void)initial {
@@ -50,27 +82,26 @@
 
 @end
 
+@interface LYCalloutLabel () {
+	NSMutableArray *menuItems;
+}
+@end
 @implementation LYCalloutLabel
 
 - (void)longPressed:(id)sender {
 	[self becomeFirstResponder];
 	
-	// 自定义 UIMenuController
 	UIMenuController *menuctl = [UIMenuController sharedMenuController];
-	UIMenuItem *itemCopy = [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Copy", nil) action:@selector(copyText:)];
-	menuctl.menuItems = @[itemCopy,];
+	menuctl.menuItems = menuItems;
 	[menuctl setTargetRect:self.bounds inView:self];
 	[menuctl setMenuVisible:YES animated:YES];
-}
-
-- (void)menuCopyAction:(id)sender {
-	[UIPasteboard generalPasteboard].string = _label.text;
 }
 
 - (void)initial {
 	[super initial];
 	
 	{
+		menuItems = [NSMutableArray arrayWithCapacity:1];
 		self.userInteractionEnabled = YES;
 		UILongPressGestureRecognizer *gesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressed:)];
 		[self addGestureRecognizer:gesture];
@@ -90,6 +121,10 @@
 
 - (BOOL)canBecomeFirstResponder {
 	return YES;
+}
+
+- (void)addMenuItem:(NSString *)itemTitle andAction:(void (^)(void))action {
+	[menuItems addObject:[[LYBlockMenuItem alloc] initWithTitle:itemTitle action:action]];
 }
 
 @end
