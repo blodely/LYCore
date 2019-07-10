@@ -83,9 +83,11 @@
 @end
 
 // MARK: - LYCalloutLabel
+#import <LYCategory/LYCategory.h>
 
 @interface LYCalloutLabel () {
 	NSMutableArray *menuItems;
+	LYCString blockMenu;
 }
 @end
 @implementation LYCalloutLabel
@@ -105,6 +107,7 @@
 	{
 		menuItems = [NSMutableArray arrayWithCapacity:1];
 		self.userInteractionEnabled = YES;
+		self.clipsToBounds = NO;
 		UILongPressGestureRecognizer *gesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressed:)];
 		[self addGestureRecognizer:gesture];
 	}
@@ -125,8 +128,29 @@
 	return YES;
 }
 
-- (void)addMenuItem:(NSString *)itemTitle andAction:(void (^)(void))action {
-	[menuItems addObject:[[LYBlockMenuItem alloc] initWithTitle:itemTitle action:action]];
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
+	if (action == @selector(menuItemAction:)) {
+		return YES;
+	}
+	return NO;
+}
+
+- (void)menuItemAction:(UIMenuItem *)sender {
+	if (sender == nil) {
+		return;
+	}
+	
+	if (blockMenu != nil) {
+		blockMenu(sender.title);
+	}
+}
+
+- (void)addMenuItem:(NSString *)itemTitle {
+	[menuItems addObject:[[UIMenuItem alloc] initWithTitle:itemTitle action:@selector(menuItemAction:)]];
+}
+
+- (void)menuAction:(void (^)(NSString *))action {
+	blockMenu = action;
 }
 
 @end

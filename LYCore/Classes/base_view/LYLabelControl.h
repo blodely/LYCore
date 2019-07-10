@@ -41,5 +41,6 @@
  */
 @interface LYCalloutLabel : LYView
 @property (nonatomic, weak) UILabel *label;
-- (void)addMenuItem:(NSString *)itemTitle andAction:(void (^)(void))action;
+- (void)addMenuItem:(NSString *)itemTitle;
+- (void)menuAction:(void (^)(NSString *title))action;
 @end
