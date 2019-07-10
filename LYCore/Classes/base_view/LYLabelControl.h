@@ -33,3 +33,12 @@
 @interface LYLabelControl : LYControl
 @property (nonatomic, weak) UILabel *label;
 @end
+
+#import <LYCore/LYView.h>
+
+/**
+ Label in view with long press callout menu.
+ */
+@interface LYCalloutLabel : LYView
+@property (nonatomic, weak) UILabel *label;
+@end

@@ -49,3 +49,47 @@
 }
 
 @end
+
+@implementation LYCalloutLabel
+
+- (void)longPressed:(id)sender {
+	[self becomeFirstResponder];
+	
+	// 自定义 UIMenuController
+	UIMenuController *menuctl = [UIMenuController sharedMenuController];
+	UIMenuItem *itemCopy = [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Copy", nil) action:@selector(copyText:)];
+	menuctl.menuItems = @[itemCopy,];
+	[menuctl setTargetRect:self.bounds inView:self];
+	[menuctl setMenuVisible:YES animated:YES];
+}
+
+- (void)menuCopyAction:(id)sender {
+	[UIPasteboard generalPasteboard].string = _label.text;
+}
+
+- (void)initial {
+	[super initial];
+	
+	{
+		self.userInteractionEnabled = YES;
+		UILongPressGestureRecognizer *gesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressed:)];
+		[self addGestureRecognizer:gesture];
+	}
+	
+	{
+		// MARK: LABEL
+		UILabel *view = [[UILabel alloc] init];
+		[self addSubview:view];
+		_label = view;
+		
+		[view mas_makeConstraints:^(MASConstraintMaker *make) {
+			make.edges.equalTo(self);
+		}];
+	}
+}
+
+- (BOOL)canBecomeFirstResponder {
+	return YES;
+}
+
+@end
