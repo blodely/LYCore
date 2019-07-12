@@ -41,6 +41,9 @@ NSString *const LYTableCellIdentifier = @"LYTableCellIdentifier";
 
 - (void)initial {
 	
+	// AS A CUSTOM CELL BASE VIEW, MOST UNLIKELY USING DEFAULT STYLE
+	self.backgroundColor = [UIColor clearColor];
+	self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)awakeFromNib {
