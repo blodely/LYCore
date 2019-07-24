@@ -27,6 +27,14 @@
 #import <UIKit/UIKit.h>
 
 
+typedef NS_ENUM(NSUInteger, LYControlMode) {
+	LYControlModeNormal			= 0,
+	LYControlModeSelected		= 1,
+	LYControlModeHighlighted	= 2,
+	LYControlModeProcessing		= 3,
+	LYControlModeDisabled		= 4,
+};
+
 @interface LYControl : UIControl
 
 /**
