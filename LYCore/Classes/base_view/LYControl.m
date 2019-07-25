@@ -39,7 +39,8 @@
 }
 
 - (void)initial {
-	
+	// SET DEFAULT MODE
+	_mode = LYControlModeNormal;
 }
 
 + (instancetype)control {
@@ -53,6 +54,31 @@
 			NSStringFromClass([self class]),	// Class name
 			NSStringFromCGRect(self.frame)		// View frame
 			];
+}
+
+// MARK: PROPERTY
+
+- (void)setMode:(LYControlMode)mode {
+	_mode = mode;
+	
+	switch (_mode) {
+		default:
+		case LYControlModeNormal: {
+			
+		} break;
+		case LYControlModeSelected: {
+			
+		} break;
+		case LYControlModeHighlighted: {
+			
+		} break;
+		case LYControlModeProcessing: {
+			
+		} break;
+		case LYControlModeDisabled: {
+			
+		} break;
+	}
 }
 
 @end

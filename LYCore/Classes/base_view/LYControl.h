@@ -49,4 +49,6 @@ typedef NS_ENUM(NSUInteger, LYControlMode) {
  */
 + (instancetype)control;
 
+@property (assign, nonatomic) LYControlMode mode;
+
 @end
