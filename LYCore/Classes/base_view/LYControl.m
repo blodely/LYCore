@@ -58,6 +58,7 @@
 
 // MARK: PROPERTY
 
+/*
 - (void)setMode:(LYControlMode)mode {
 	_mode = mode;
 	
@@ -80,5 +81,6 @@
 		} break;
 	}
 }
+*/
 
 @end
