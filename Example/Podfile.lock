@@ -15,11 +15,11 @@ PODS:
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
   - FCFileManager (1.0.20)
-  - LYCategory (1.2.43)
+  - LYCategory (1.2.44)
   - LYCore (1.0.36):
     - AFNetworking (~> 3.2.1)
     - FCFileManager (~> 1.0.20)
-    - LYCategory (~> 1.2.43)
+    - LYCategory (~> 1.2.44)
     - Masonry (~> 1.1.0)
     - WebViewJavascriptBridge (~> 6.0.3)
   - Masonry (1.1.0)
@@ -43,8 +43,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   FCFileManager: e0f73316e6aa2eb04d2ff4caa75fe7df1ae44270
-  LYCategory: 422fa6db757147b89014aa30dc5d9203709ce745
-  LYCore: f7b5267378a6b9bda73c272e9dc3d9c09ff6d604
+  LYCategory: 6d50178f59af079fd9016d3d1b8969f92d09eace
+  LYCore: 43b18de03795ddd272fcad9a64ca565646fca679
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   WebViewJavascriptBridge: 7f5bc4d3581e672e8f32bd0f812d54bc69bb8e29
 

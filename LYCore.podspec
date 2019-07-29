@@ -33,7 +33,7 @@ Core library 4 iOS app.
   s.dependency 'AFNetworking', '~> 3.2.1'
   s.dependency 'FCFileManager', '~> 1.0.20'
   
-  s.dependency 'LYCategory', '~> 1.2.43'
+  s.dependency 'LYCategory', '~> 1.2.44'
   s.dependency 'Masonry', '~> 1.1.0'
   s.dependency 'WebViewJavascriptBridge', '~> 6.0.3'
   
