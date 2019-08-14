@@ -28,6 +28,12 @@
 
 @interface UIImageView (LYCoreNetwork)
 
+/**
+ Set image with URL string and placeholder image name
+
+ @param URLString web image URL string
+ @param imageName local image name
+ */
 - (void)setImageWithURLString:(NSString *)URLString andPlaceholderNamed:(NSString *)imageName;
 
 - (void)setImageWithURLString:(NSString *)URLString andPlaceholderNamed:(NSString *)imageName inBundle:(NSBundle *)bundle;
