@@ -114,6 +114,13 @@
 									success:(void (^)(id ret))success
 									failure:(void (^)(NSError *))failure;
 
+/**
+ image data downloader.
+
+ @param URLString web image URL string
+ @param success success block
+ @param failure failed block
+ */
 - (void)GETImageURLString:(NSString *)URLString
 				  success:(void (^)(UIImage *image))success
 				  failure:(void (^)(NSError *error))failure;
