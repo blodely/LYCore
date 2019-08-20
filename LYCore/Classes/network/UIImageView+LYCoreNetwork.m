@@ -55,7 +55,7 @@
 		NSURLCache *imgURLCache = imgdl.sessionManager.session.configuration.URLCache;
 		NSCachedURLResponse *cachedResp = [imgURLCache cachedResponseForRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:URLString]]];
 		
-		if (!cachedResp.data && ![UIImage imageWithData:cachedResp.data]) {
+		if (cachedResp != nil && cachedResp.data != nil && [UIImage imageWithData:cachedResp.data] != nil) {
 			// FOUND HDD CACHE
 			dispatch_async(dispatch_get_main_queue(), ^{
 				[self setImage:[UIImage imageWithData:cachedResp.data]];
