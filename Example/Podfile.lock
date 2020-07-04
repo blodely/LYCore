@@ -21,9 +21,7 @@ PODS:
     - FCFileManager (~> 1.0.20)
     - LYCategory (~> 1.2.44)
     - Masonry (~> 1.1.0)
-    - WebViewJavascriptBridge (~> 6.0.3)
   - Masonry (1.1.0)
-  - WebViewJavascriptBridge (6.0.3)
 
 DEPENDENCIES:
   - LYCore (from `../`)
@@ -34,7 +32,6 @@ SPEC REPOS:
     - FCFileManager
     - LYCategory
     - Masonry
-    - WebViewJavascriptBridge
 
 EXTERNAL SOURCES:
   LYCore:
@@ -44,10 +41,9 @@ SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   FCFileManager: e0f73316e6aa2eb04d2ff4caa75fe7df1ae44270
   LYCategory: 6d50178f59af079fd9016d3d1b8969f92d09eace
-  LYCore: a0e9d594c153d7c302de970668205c1381b332cd
+  LYCore: 1c4f87d37ccb2d9fdc0ed81ed73654f6517d3eaa
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  WebViewJavascriptBridge: 7f5bc4d3581e672e8f32bd0f812d54bc69bb8e29
 
 PODFILE CHECKSUM: a2bbc91ca1ffc56a103950e2c329973d608150b9
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3

@@ -96,4 +96,3 @@ FOUNDATION_EXPORT NSString *const LIB_LYCORE_BUNDLE_ID;
 #import <LYCore/LYCollectionCell.h>
 
 #import <LYCore/LYBaseViewController.h>
-#import <LYCore/LYWebViewController.h>
