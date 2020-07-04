@@ -21,7 +21,8 @@ Core library 4 iOS app.
 
 	s.ios.deployment_target = '8.0'
 
-	s.source_files = 'LYCore/Classes/network/*', 'LYCore/Classes/model/*', 'LYCore/Classes/base_view/*', 'LYCore/Classes/viewc/*', 'LYCore/Classes/category/*', 'LYCore/Configuration/*.plist', 'LYCore/Classes/*' #'LYCore/Classes/**/*'
+	s.source_files = 'LYCore/Classes/network/*', 'LYCore/Classes/model/*', 'LYCore/Classes/base_view/*', 'LYCore/Classes/viewc/*', 'LYCore/Classes/category/*', 'LYCore/Classes/*' #, 'LYCore/Configuration/*.plist', 'LYCore/Classes/**/*'
+#	s.exclude_files = 'LYCore/Configuration/*.plist'
   
   # s.resource_bundles = {
   #   'LYCore' => ['LYCore/Assets/*.png']
