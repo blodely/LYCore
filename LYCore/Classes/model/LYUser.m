@@ -112,7 +112,7 @@
 	[coder encodeObject:self.token forKey:@"self.token"];
 	[coder encodeObject:self.mobile forKey:@"self.mobile"];
 	[coder encodeObject:self.name forKey:@"self.name"];
-	[coder encodeInt:self.gender forKey:@"self.gender"];
+	[coder encodeInteger:self.gender forKey:@"self.gender"];
 	[coder encodeObject:self.avatar forKey:@"self.avatar"];
 	[coder encodeObject:self.userInfo forKey:@"self.userInfo"];
 }
