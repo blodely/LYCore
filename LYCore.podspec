@@ -5,7 +5,7 @@
 
 Pod::Spec.new do |s|
 	s.name             = 'LYCore'
-	s.version          = '1.12.0'
+	s.version          = '1.12.1'
 	s.summary          = 'Core libs for iOS app.'
 
 	s.description      = <<-DESC
@@ -36,7 +36,7 @@ Versions: 1.0.38=>iOS8; 1.12.x=>Xcode12.iOS9
   s.dependency 'AFNetworking', '~> 4.0'
   s.dependency 'FCFileManager', '~> 1.0.20'
   
-  s.dependency 'LYCategory', '~> 1.2.44'
+  s.dependency 'LYCategory', '~> 1.12'
   s.dependency 'Masonry', '~> 1.1.0'
   
 end
