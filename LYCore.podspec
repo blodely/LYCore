@@ -5,11 +5,12 @@
 
 Pod::Spec.new do |s|
 	s.name             = 'LYCore'
-	s.version          = '1.0.38'
+	s.version          = '1.12.0'
 	s.summary          = 'Core libs for iOS app.'
 
 	s.description      = <<-DESC
 Core library 4 iOS app.
+Versions: 1.0.38=>iOS8; 1.12.x=>Xcode12.iOS9
                        DESC
 
 	s.homepage         = 'https://github.com/blodely/LYCore'
@@ -19,10 +20,11 @@ Core library 4 iOS app.
 	s.source           = { :git => 'https://github.com/blodely/LYCore.git', :tag => s.version.to_s }
 	s.social_media_url = 'https://weibo.com/blodely'
 
-	s.ios.deployment_target = '8.0'
+	s.ios.deployment_target = '9.0'
 
 	s.source_files = 'LYCore/Classes/network/*', 'LYCore/Classes/model/*', 'LYCore/Classes/base_view/*', 'LYCore/Classes/viewc/*', 'LYCore/Classes/category/*', 'LYCore/Classes/*' #, 'LYCore/Configuration/*.plist', 'LYCore/Classes/**/*'
-#	s.exclude_files = 'LYCore/Configuration/*.plist'
+	
+	s.resources = 'LYCore/Configuration/*.plist'
   
   # s.resource_bundles = {
   #   'LYCore' => ['LYCore/Assets/*.png']
@@ -31,7 +33,7 @@ Core library 4 iOS app.
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'Foundation', 'UIKit', 'CoreLocation'
   
-  s.dependency 'AFNetworking', '~> 3.2.1'
+  s.dependency 'AFNetworking', '~> 4.0'
   s.dependency 'FCFileManager', '~> 1.0.20'
   
   s.dependency 'LYCategory', '~> 1.2.44'

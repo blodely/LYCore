@@ -166,7 +166,7 @@
 							   success:(void (^)(id))success
 							   failure:(void (^)(NSError *))failure {
 	
-	NSURLSessionDataTask *dataTask = [manager GET:[API stringByAppendingString:URLString] parameters:params progress:^(NSProgress *downloadProgress) {
+	NSURLSessionDataTask *dataTask = [manager GET:[API stringByAppendingString:URLString] parameters:params headers:nil progress:^(NSProgress *downloadProgress) {
 		// PROGRESS
 	} success:^(NSURLSessionDataTask *task, id resp) {
 		
@@ -188,7 +188,7 @@
 								success:(void (^)(id))success
 								failure:(void (^)(NSError *))failure {
 	
-	NSURLSessionDataTask *dataTask = [manager POST:[API stringByAppendingString:URLString] parameters:params progress:^(NSProgress *uploadProgress) {
+	NSURLSessionDataTask *dataTask = [manager POST:[API stringByAppendingString:URLString] parameters:params headers:nil progress:^(NSProgress *uploadProgress) {
 		
 	} success:^(NSURLSessionDataTask *task, id resp) {
 		
@@ -208,15 +208,15 @@
 
 - (NSURLSessionDataTask *)GETAbsoluteURLString:(NSString *)URLString withParameters:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSError *))failure {
 	
-	NSURLSessionDataTask *datatask = [absolute GET:URLString parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
-		
-	} success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable resp) {
+	NSURLSessionDataTask *datatask = [absolute GET:URLString parameters:params headers:nil progress:^(NSProgress *downloadProgress) {
+
+	} success:^(NSURLSessionDataTask *task, id resp) {
 		
 		// SUCCESS
 		success(resp);
 		// NSLog(@"\n\nREQUEST(GET) ✅SUCCESS\n\tABSOLUTE\t%@\n", URLString);
 		
-	} failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+	} failure:^(NSURLSessionDataTask *task, NSError *error) {
 		
 		// FAILED
 		failure(error);
@@ -228,13 +228,13 @@
 
 - (NSURLSessionDataTask *)POSTAbsoluteURLString:(NSString *)URLString withParameters:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSError *))failure {
 	
-	NSURLSessionDataTask *datatask = [absolute POST:URLString parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
+	NSURLSessionDataTask *datatask = [absolute POST:URLString parameters:params headers:nil progress:^(NSProgress *uploadProgress) {
 		
-	} success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable resp) {
+	} success:^(NSURLSessionDataTask *task, id resp) {
 		// SUCCESS
 		success(resp);
 		// NSLog(@"\n\nREQUEST(POST) ✅SUCCESS\n\tABSOLUTE\t%@\n", URLString);
-	} failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+	} failure:^(NSURLSessionDataTask *task, NSError *error) {
 		// FAILED
 		failure(error);
 		NSLog(@"\n\nREQUEST(POST) ❎FAILED\n\tABSOLUTE\t%@\n", URLString);
@@ -252,16 +252,16 @@
 									success:(void (^)(id ret))success
 									failure:(void (^)(NSError *))failure {
 	
-	NSURLSessionDataTask *datatask = [absolute POST:URLString parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+	NSURLSessionDataTask *datatask = [absolute POST:URLString parameters:param headers:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
 		
 		[formData appendPartWithFileData:data name:name fileName:filename mimeType:mimetype];
 		
-	} progress:^(NSProgress * _Nonnull uploadProgress) {
+	} progress:^(NSProgress *uploadProgress) {
 		progress(uploadProgress.completedUnitCount / uploadProgress.totalUnitCount);
-	} success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+	} success:^(NSURLSessionDataTask *task, id responseObject) {
 		success(responseObject);
 		NSLog(@"\n\nREQUEST(POST-FORMDATA) ✅SUCCESS\n\tABSOLUTE\t%@\n\n", URLString);
-	} failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+	} failure:^(NSURLSessionDataTask *task, NSError *error) {
 		failure(error);
 		NSLog(@"\n\nREQUEST(POST-FORMDATA) ❎FAILED\n\tURL\t%@\n\n", URLString);
 	}];
