@@ -26,6 +26,7 @@
 
 #import "LYNavBar.h"
 #import <LYCategory/LYCategory.h>
+#import <Masonry/Masonry.h>
 
 
 @interface LYNavBar () {}
@@ -73,6 +74,102 @@
 	frame.size.width = WIDTH;
 	frame.size.height = 44;
 	[super setFrame:frame];
+}
+
+@end
+
+// MARK: - LYNavbarView
+
+@interface LYNavbarView () {
+	__strong LYCCompletion actionBack;
+}
+@end
+
+@implementation LYNavbarView
+
+// MARK: - ACTION
+
+- (void)navBackButtonPressed:(id)sender {
+	if (actionBack != nil) {
+		actionBack();
+	} else {
+		NSLog(@"BLOCK NOT FOUND");
+	}
+}
+
+// MARK: - INIT
+
+- (instancetype)init {
+	if (self = [super initWithFrame:(CGRect){0, 0, WIDTH, 44 + SAFE_TOP}]) {
+		[self initial];
+	}
+	return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame {
+	frame.origin = CGPointZero;
+	frame.size.width = WIDTH;
+	frame.size.height = 44 + SAFE_TOP;
+	if (self = [super initWithFrame:frame]) {
+		[self initial];
+	}
+	return self;
+}
+
+- (void)initial {
+	self.backgroundColor = [UIColor whiteColor];
+	
+	{
+		// MARK: NAV BACK BUTTON
+		UIButton *view = [UIButton buttonWithType:UIButtonTypeCustom];
+		[self addSubview:view];
+		btnBack = view;
+		
+		[btnBack addTarget:self action:@selector(navBackButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+		
+		[view mas_makeConstraints:^(MASConstraintMaker *make) {
+			make.left.bottom.equalTo(self);
+			make.width.height.mas_equalTo(44);
+		}];
+	}
+	
+	{
+		// MARK: NAV TITLE LABEL
+		UILabel *view = [[UILabel alloc] init];
+		view.font = [UIFont boldSystemFontOfSize:16];
+		view.textAlignment = NSTextAlignmentCenter;
+		[self addSubview:view];
+		lblTitle = view;
+		
+		[view mas_makeConstraints:^(MASConstraintMaker *make) {
+			make.leading.equalTo(self->btnBack.mas_trailing);
+			make.right.equalTo(self).offset(-44);
+			make.bottom.equalTo(self);
+			if (@available(iOS 11.0, *)) {
+				make.top.equalTo(self.mas_safeAreaLayoutGuideTop);
+			} else {
+				make.top.equalTo(self).offset(SAFE_TOP);
+			}
+		}];
+	}
+}
+
++ (instancetype)navbar {
+	return [[[self class] alloc] initWithFrame:CGRectZero];
+}
+
+// MARK: - METHOD
+
+- (void)navBackAction:(void (^)(void))action {
+	actionBack = action;
+}
+
+// MARK: OVERRIDE
+
+- (void)setTintColor:(UIColor *)tintColor {
+	[super setTintColor:tintColor];
+	
+	lblTitle.textColor = tintColor;
 }
 
 @end

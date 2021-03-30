@@ -45,3 +45,24 @@
 - (void)initial;
 
 @end
+
+
+// MARK: - LYNavbarView
+
+@interface LYNavbarView : UIView {
+	
+	__weak UIButton *btnBack;	// BACK BAR BUTTON
+	__weak UILabel *lblTitle;	// NAV BAR TITLE
+}
+
+/// nav bar view instance creator
++ (instancetype)navbar;
+
+/// initial method
+- (void)initial;
+
+/// nav bar back button pressed action
+/// @param action action block
+- (void)navBackAction:(void (^)(void))action;
+
+@end
