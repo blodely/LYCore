@@ -5,7 +5,7 @@
 
 Pod::Spec.new do |s|
 	s.name             = 'LYCore'
-	s.version          = '1.12.1'
+	s.version          = '1.12.2'
 	s.summary          = 'Core libs for iOS app.'
 
 	s.description      = <<-DESC
