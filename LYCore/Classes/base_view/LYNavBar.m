@@ -150,6 +150,7 @@
 			} else {
 				make.top.equalTo(self).offset(SAFE_TOP);
 			}
+			make.height.equalTo(self->btnBack);
 		}];
 	}
 }
