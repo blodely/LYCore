@@ -49,11 +49,13 @@
 
 // MARK: - LYNavbarView
 
-@interface LYNavbarView : UIView {
-	
-	__weak UIButton *btnBack;	// BACK BAR BUTTON
-	__weak UILabel *lblTitle;	// NAV BAR TITLE
-}
+@interface LYNavbarView : UIView
+
+/// Navbar back button
+@property (nonatomic, weak) UIButton *btnBack;
+
+/// Navbar title label
+@property (nonatomic, weak) UILabel *lblTitle;
 
 /// nav bar view instance creator
 + (instancetype)navbar;

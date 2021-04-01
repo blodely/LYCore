@@ -123,9 +123,9 @@
 		// MARK: NAV BACK BUTTON
 		UIButton *view = [UIButton buttonWithType:UIButtonTypeCustom];
 		[self addSubview:view];
-		btnBack = view;
+		_btnBack = view;
 		
-		[btnBack addTarget:self action:@selector(navBackButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+		[_btnBack addTarget:self action:@selector(navBackButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
 		
 		[view mas_makeConstraints:^(MASConstraintMaker *make) {
 			make.left.bottom.equalTo(self);
@@ -139,10 +139,10 @@
 		view.font = [UIFont boldSystemFontOfSize:16];
 		view.textAlignment = NSTextAlignmentCenter;
 		[self addSubview:view];
-		lblTitle = view;
+		_lblTitle = view;
 		
 		[view mas_makeConstraints:^(MASConstraintMaker *make) {
-			make.leading.equalTo(self->btnBack.mas_trailing);
+			make.leading.equalTo(self->_btnBack.mas_trailing);
 			make.right.equalTo(self).offset(-44);
 			make.bottom.equalTo(self);
 			if (@available(iOS 11.0, *)) {
@@ -150,7 +150,7 @@
 			} else {
 				make.top.equalTo(self).offset(SAFE_TOP);
 			}
-			make.height.equalTo(self->btnBack);
+			make.height.equalTo(self->_btnBack);
 		}];
 	}
 }
@@ -170,7 +170,7 @@
 - (void)setTintColor:(UIColor *)tintColor {
 	[super setTintColor:tintColor];
 	
-	lblTitle.textColor = tintColor;
+	_lblTitle.textColor = tintColor;
 }
 
 @end
