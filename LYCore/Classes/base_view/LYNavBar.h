@@ -49,7 +49,12 @@
 
 // MARK: - LYNavbarView
 
-@interface LYNavbarView : UIView
+@class LYLine;
+
+@interface LYNavbarView : UIView {
+	
+	__weak LYLine *anchor;
+}
 
 /// Navbar back button
 @property (nonatomic, weak) UIButton *btnBack;

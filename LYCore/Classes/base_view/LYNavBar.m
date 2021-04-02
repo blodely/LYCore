@@ -27,6 +27,7 @@
 #import "LYNavBar.h"
 #import <LYCategory/LYCategory.h>
 #import <Masonry/Masonry.h>
+#import "LYLine.h"
 
 
 @interface LYNavBar () {}
@@ -100,7 +101,7 @@
 // MARK: - INIT
 
 - (instancetype)init {
-	if (self = [super initWithFrame:(CGRect){0, 0, WIDTH, 44 + SAFE_TOP}]) {
+	if (self = [super initWithFrame:CGRectZero]) {
 		[self initial];
 	}
 	return self;
@@ -109,7 +110,6 @@
 - (instancetype)initWithFrame:(CGRect)frame {
 	frame.origin = CGPointZero;
 	frame.size.width = WIDTH;
-	frame.size.height = 44 + SAFE_TOP;
 	if (self = [super initWithFrame:frame]) {
 		[self initial];
 	}
@@ -118,6 +118,23 @@
 
 - (void)initial {
 	self.backgroundColor = [UIColor whiteColor];
+	
+	{
+		// MARK: ANCHOR VIEW FOR POSITIONING AND HEIGHT
+		LYLine *view = [LYLine lineWithColor:[UIColor clearColor]];
+		[self addSubview:view];
+		anchor = view;
+		
+		[view mas_makeConstraints:^(MASConstraintMaker *make) {
+			make.left.right.bottom.equalTo(self);
+			make.height.mas_equalTo(44);
+			if (@available(iOS 11.0, *)) {
+				make.top.equalTo(self.mas_safeAreaLayoutGuideTop);
+			} else {
+				make.top.equalTo(self).offset(SAFE_TOP);
+			}
+		}];
+	}
 	
 	{
 		// MARK: NAV BACK BUTTON
@@ -145,12 +162,7 @@
 			make.leading.equalTo(self->_btnBack.mas_trailing);
 			make.right.equalTo(self).offset(-44);
 			make.bottom.equalTo(self);
-			if (@available(iOS 11.0, *)) {
-				make.top.equalTo(self.mas_safeAreaLayoutGuideTop);
-			} else {
-				make.top.equalTo(self).offset(SAFE_TOP);
-			}
-			make.height.equalTo(self->_btnBack);
+			make.height.equalTo(self->anchor);
 		}];
 	}
 }
