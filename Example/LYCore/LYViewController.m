@@ -10,6 +10,7 @@
 #import <LYCore/LYCore.h>
 #import <FCFileManager/FCFileManager.h>
 #import <LYCore/LYLabelControl.h>
+#import <Masonry/Masonry.h>
 
 
 @interface LYViewController () {
@@ -56,6 +57,7 @@
 	{
 		// DEMO APP
 		self.navigationItem.title = @"LYCore Demo";
+		
 		for (id view in [self.view subviews]) {
 			if ([view isKindOfClass:[UIButton class]]) {
 				[view border1Px];
@@ -64,11 +66,32 @@
 	}
 	
 	{
+		// MARK: NAV BAR VIEW DEMO
+		LYNavbarView *view = [LYNavbarView navbar];
+		view.lblTitle.text = @"LYCore Demo";
+		view.btnBack.hidden = NO;
+		[self.view addSubview:view];
+		
+		[view mas_makeConstraints:^(MASConstraintMaker *make) {
+			make.left.right.top.equalTo(self.view);
+		}];
+		
+		// FOR TEST PURPOSE SHOW VIEW'S BORDER
+		[view border1Px];
+		[view.btnBack border1Px];
+	}
+	
+	{
 		LYCalloutCopyLabel *view = [LYCalloutCopyLabel view];
 		[self.view addSubview:view];
 		lblCallout = view;
 		
-		lblCallout.frame = (CGRect){16, 240, WIDTH - 32, 30};
+		[view mas_makeConstraints:^(MASConstraintMaker *make) {
+			make.top.equalTo(self.view).offset(300);
+			make.left.equalTo(self.view).offset(16);
+			make.right.equalTo(self.view).offset(-16);
+			make.height.mas_equalTo(30);
+		}];
 		
 		[lblCallout border1Px];
 		lblCallout.label.font = [UIFont systemFontOfSize:14];
