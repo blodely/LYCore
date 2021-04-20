@@ -15,7 +15,7 @@ PODS:
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - FCFileManager (1.0.20)
-  - LYCategory (1.12.0)
+  - LYCategory (1.12.2)
   - LYCore (1.12.5):
     - AFNetworking (~> 4.0)
     - FCFileManager (~> 1.0.20)
@@ -40,7 +40,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   FCFileManager: e0f73316e6aa2eb04d2ff4caa75fe7df1ae44270
-  LYCategory: 8f347904040c575ba421d12be0445236dda940a7
+  LYCategory: d19fbbbbe07fe28e2192b89a259fdfbb91e3708c
   LYCore: d2b54c3928bb0f5d87b8cf0a5d80138a60572dbd
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
