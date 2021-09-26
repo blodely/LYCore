@@ -35,20 +35,30 @@ typedef NS_ENUM(NSInteger, LYUserGender) {
 
 @interface LYUser : LYModel
 
-@property (nonatomic, strong) NSString *token;
+/// login token string
+@property (nonatomic, copy) NSString *token;
 
-@property (nonatomic, strong) NSString *mobile;
+/// user mobile number string
+@property (nonatomic, copy) NSString *mobile;
 
-@property (nonatomic, strong) NSString *name;
+/// user name
+@property (nonatomic, copy) NSString *name;
 
+/// user gender
 @property (nonatomic, assign) LYUserGender gender;
 
-@property (nonatomic, strong) NSString *avatar;
+/// user avatar url
+@property (nonatomic, copy) NSString *avatar;
 
-@property (nonatomic, strong) NSDictionary *userInfo;
+/// extra info dictionary
+@property (nonatomic, copy) NSDictionary *userInfo;
 
+/// create an user instance by UID
+/// @param theUID UID string
 + (instancetype)userWithUID:(NSString *)theUID;
 
+/// compare to user object, check if it's the same user.
+/// @param user user instance
 - (BOOL)isEqualToUser:(LYUser *)user;
 
 @end
