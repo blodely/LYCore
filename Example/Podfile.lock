@@ -15,10 +15,12 @@ PODS:
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - FCFileManager (1.0.20)
+  - JLRoutes (2.1)
   - LYCategory (1.12.2)
-  - LYCore (1.12.5):
+  - LYCore (1.13.0):
     - AFNetworking (~> 4.0)
     - FCFileManager (~> 1.0.20)
+    - JLRoutes (~> 2.1)
     - LYCategory (~> 1.12)
     - Masonry (~> 1.1.0)
   - Masonry (1.1.0)
@@ -30,6 +32,7 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - AFNetworking
     - FCFileManager
+    - JLRoutes
     - LYCategory
     - Masonry
 
@@ -40,10 +43,11 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   FCFileManager: e0f73316e6aa2eb04d2ff4caa75fe7df1ae44270
+  JLRoutes: d755245322b94227662ea3e43492fdca94e05c5b
   LYCategory: d19fbbbbe07fe28e2192b89a259fdfbb91e3708c
-  LYCore: d2b54c3928bb0f5d87b8cf0a5d80138a60572dbd
+  LYCore: 96566234a81703067915f895daa31626b68960c6
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
-PODFILE CHECKSUM: a2bbc91ca1ffc56a103950e2c329973d608150b9
+PODFILE CHECKSUM: 99273ae9281acac1f0702e7f881ae7ae4c199065
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2
