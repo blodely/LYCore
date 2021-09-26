@@ -208,7 +208,9 @@ typedef void(^LYAppLocationUpdatedBlock)(CLLocationCoordinate2D coordinate, CLPl
 			cancelButtonTitle:(cancel == nil ? @"Got it" : cancel)
 			confirmButtonTitle:(confirm == nil ? @"Settings" : confirm)
 			confirmAction:^{
-				[[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:^(BOOL success) {
+                    [LYCore core].debug ? NSLog(@"Settings %@OPENED", (success ? @"" : @"NOT ")) : 0;
+                }];
 			}];
 		} break;
 		default:
