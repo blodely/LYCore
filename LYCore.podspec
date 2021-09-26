@@ -5,12 +5,13 @@
 
 Pod::Spec.new do |s|
 	s.name             = 'LYCore'
-	s.version          = '1.12.5'
+	s.version          = '1.13.0'
 	s.summary          = 'Core libs for iOS app.'
 
 	s.description      = <<-DESC
 Core library 4 iOS app.
 Versions: 1.0.38=>iOS8; 1.12.x=>Xcode12.iOS9
+1.13.0: min=iOS11
                        DESC
 
 	s.homepage         = 'https://github.com/blodely/LYCore'
@@ -20,7 +21,7 @@ Versions: 1.0.38=>iOS8; 1.12.x=>Xcode12.iOS9
 	s.source           = { :git => 'https://github.com/blodely/LYCore.git', :tag => s.version.to_s }
 	s.social_media_url = 'https://weibo.com/blodely'
 
-	s.ios.deployment_target = '9.0'
+	s.ios.deployment_target = '11.0'
 
 	s.source_files = 'LYCore/Classes/network/*', 'LYCore/Classes/model/*', 'LYCore/Classes/base_view/*', 'LYCore/Classes/viewc/*', 'LYCore/Classes/category/*', 'LYCore/Classes/*' #, 'LYCore/Configuration/*.plist', 'LYCore/Classes/**/*'
 	
@@ -38,5 +39,7 @@ Versions: 1.0.38=>iOS8; 1.12.x=>Xcode12.iOS9
   
   s.dependency 'LYCategory', '~> 1.12'
   s.dependency 'Masonry', '~> 1.1.0'
+  
+  s.dependency 'JLRoutes', '~> 2.1'
   
 end
