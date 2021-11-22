@@ -31,6 +31,7 @@
 #import <LYCore/LYModel.h>
 #import <LYCore/LYApp.h>
 #import <LYCore/LYUser.h>
+#import <LYCore/LYControlResourceAttribute.h>
 #import <LYCategory/LYCategory.h>
 
 
