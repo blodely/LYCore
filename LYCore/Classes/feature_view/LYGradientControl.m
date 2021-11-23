@@ -102,6 +102,18 @@
 	[self resetGradient];
 }
 
+- (void)setStartPoint:(CGPoint)startPoint {
+	_startPoint = startPoint;
+	
+	[self resetGradient];
+}
+
+- (void)setEndPoint:(CGPoint)endPoint {
+	_endPoint = endPoint;
+	
+	[self resetGradient];
+}
+
 // MARK: OVERWRITE
 
 + (Class)layerClass {
