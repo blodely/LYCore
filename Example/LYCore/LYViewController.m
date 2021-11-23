@@ -16,6 +16,8 @@
 @interface LYViewController () {
 	
 	__weak LYCalloutCopyLabel *lblCallout;
+	
+	__weak IBOutlet LYGradientControl *cGradient;
 }
 
 @end
@@ -102,6 +104,14 @@
 		[lblCallout calloutAction:^{
 			NSLog(@"copy action");
 		}];
+	}
+	
+	{
+		cGradient.colors = @[
+			[UIColor redColor],
+			[UIColor blueColor],
+		];
+		cGradient.locations = @[@0, @1,];
 	}
 }
 
