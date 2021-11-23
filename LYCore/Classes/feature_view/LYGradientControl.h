@@ -29,4 +29,11 @@
 
 @interface LYGradientControl : LYControl
 
+@property (nonatomic, copy) NSArray<UIColor *> *colors;
+
+@property (nonatomic, copy) NSArray<NSNumber *> *locations;
+
+@property (nonatomic, assign) CGPoint startPoint;
+@property (nonatomic, assign) CGPoint endPoint;
+
 @end

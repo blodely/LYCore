@@ -29,6 +29,81 @@
 
 @implementation LYGradientControl
 
+// MARK: - INIT
+
+- (void)initial {
+	[super initial];
+	
+	{
+		_colors = @[
+			[UIColor clearColor],
+			[UIColor clearColor],
+		];
+	}
+	
+	{
+		_locations = @[@0, @1,];
+	}
+	
+	{
+		_startPoint = (CGPoint){0, 0.5};
+		_endPoint = (CGPoint){1, 0.5};
+	}
+}
+
+// MARK: - METHOD
+
+// MARK: PRIVATE METHOD
+
+- (void)resetGradient {
+	__weak CAGradientLayer *layer = (CAGradientLayer *)[self layer];
+	layer.locations = _locations;
+	
+	{
+		NSMutableArray *mcolors = [NSMutableArray arrayWithCapacity:1];
+		for (UIColor *color in _colors) {
+			[mcolors addObject:( (__bridge id)color.CGColor )];
+		}
+		layer.colors = [NSArray arrayWithArray:mcolors];
+	}
+	
+	layer.startPoint = _startPoint;
+	layer.endPoint = _endPoint;
+}
+
+// MARK: PROPERTY
+
+- (void)setColors:(NSArray<UIColor *> *)colors {
+	if (colors == nil || [colors isKindOfClass:[NSArray class]] == NO ||
+		colors.count == 0 ||
+		[colors.firstObject isKindOfClass:[UIColor class]] == NO) {
+		
+		_colors = @[
+			[UIColor clearColor],
+			[UIColor clearColor],
+		];
+	} else {
+		_colors = colors;
+	}
+	
+	[self resetGradient];
+}
+
+- (void)setLocations:(NSArray<NSNumber *> *)locations {
+	if (locations == nil ||
+		[locations isKindOfClass:[NSArray class]] ||
+		locations.count == 0 ||
+		[locations.firstObject isKindOfClass:[NSNumber class]] == NO) {
+		_locations = @[@0, @1];
+	} else {
+		_locations = locations;
+	}
+	
+	[self resetGradient];
+}
+
+// MARK: OVERWRITE
+
 + (Class)layerClass {
 	return [CAGradientLayer class];
 }
