@@ -23,7 +23,7 @@ Versions: 1.0.38=>iOS8; 1.12.x=>Xcode12.iOS9
 
 	s.ios.deployment_target = '11.0'
 
-	s.source_files = 'LYCore/Classes/network/*', 'LYCore/Classes/model/*', 'LYCore/Classes/base_view/*', 'LYCore/Classes/viewc/*', 'LYCore/Classes/category/*', 'LYCore/Classes/*' #, 'LYCore/Configuration/*.plist', 'LYCore/Classes/**/*'
+	s.source_files = 'LYCore/Classes/network/*', 'LYCore/Classes/model/*', 'LYCore/Classes/base_view/*', 'LYCore/Classes/feature_view/*', 'LYCore/Classes/viewc/*', 'LYCore/Classes/category/*', 'LYCore/Classes/*' #, 'LYCore/Configuration/*.plist', 'LYCore/Classes/**/*'
 	
 	s.resources = 'LYCore/Configuration/*.plist'
   
