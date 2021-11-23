@@ -17,7 +17,7 @@ PODS:
   - FCFileManager (1.0.20)
   - JLRoutes (2.1)
   - LYCategory (1.13.1)
-  - LYCore (1.13.0):
+  - LYCore (1.13.1):
     - AFNetworking (~> 4.0)
     - FCFileManager (~> 1.0.20)
     - JLRoutes (~> 2.1)
@@ -45,7 +45,7 @@ SPEC CHECKSUMS:
   FCFileManager: e0f73316e6aa2eb04d2ff4caa75fe7df1ae44270
   JLRoutes: d755245322b94227662ea3e43492fdca94e05c5b
   LYCategory: 106df397b4b514a8cbe7f228c34a503142d3b964
-  LYCore: 96566234a81703067915f895daa31626b68960c6
+  LYCore: f244d4db4db1976db6ad92341250f9be8b5235c5
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
 PODFILE CHECKSUM: 99273ae9281acac1f0702e7f881ae7ae4c199065
