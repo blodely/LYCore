@@ -31,6 +31,13 @@
 
 // MARK: - INIT
 
+- (instancetype)initWithCoder:(NSCoder *)coder {
+	if (self = [super initWithCoder:coder]) {
+		[self initial];
+	}
+	return self;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame {
 	if (self = [super initWithFrame:frame]) {
 		[self initial];
