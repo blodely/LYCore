@@ -5,7 +5,7 @@
 
 Pod::Spec.new do |s|
 	s.name             = 'LYCore'
-	s.version          = '1.13.3'
+	s.version          = '1.13.4'
 	s.summary          = 'Core libs for iOS app.'
 
 	s.description      = <<-DESC
@@ -13,6 +13,7 @@ Core library 4 iOS app.
 Versions: 1.0.38=>iOS8; 1.12.x=>Xcode12.iOS9
 1.13.0: min=iOS11
 1.13.1: add gradient control base view.
+1.13.4: BIG CHANGE: from this version, core lib will move all base & custom views to LYFactAppCommon lib as dependency.
                        DESC
 
 	s.homepage         = 'https://github.com/blodely/LYCore'
@@ -42,5 +43,7 @@ Versions: 1.0.38=>iOS8; 1.12.x=>Xcode12.iOS9
   s.dependency 'Masonry', '~> 1.1.0'
   
   s.dependency 'JLRoutes', '~> 2.1'
+  
+  s.dependency 'LYFactAppCommon'
   
 end
