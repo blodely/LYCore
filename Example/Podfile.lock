@@ -15,15 +15,24 @@ PODS:
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - FCFileManager (1.0.20)
+  - FCUUID (1.3.1):
+    - UICKeyChainStore (~> 2.1.0)
   - JLRoutes (2.1)
   - LYCategory (1.13.6)
-  - LYCore (1.13.3):
+  - LYCore (1.13.4):
     - AFNetworking (~> 4.0)
     - FCFileManager (~> 1.0.20)
     - JLRoutes (~> 2.1)
     - LYCategory (~> 1.13.6)
+    - LYFactAppCommon
     - Masonry (~> 1.1.0)
+  - LYFactAppCommon (1.0.4):
+    - AFNetworking (~> 4.0.1)
+    - FCUUID (~> 1.3.1)
+    - JLRoutes
+    - LYCategory (~> 1.13.6)
   - Masonry (1.1.0)
+  - UICKeyChainStore (2.1.2)
 
 DEPENDENCIES:
   - LYCore (from `../`)
@@ -32,9 +41,12 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - AFNetworking
     - FCFileManager
+    - FCUUID
     - JLRoutes
     - LYCategory
+    - LYFactAppCommon
     - Masonry
+    - UICKeyChainStore
 
 EXTERNAL SOURCES:
   LYCore:
@@ -43,10 +55,13 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   FCFileManager: e0f73316e6aa2eb04d2ff4caa75fe7df1ae44270
+  FCUUID: bb054fc90cd7cd99320f9f6ff8e130fe607fba05
   JLRoutes: d755245322b94227662ea3e43492fdca94e05c5b
   LYCategory: 7c1726540f50e8f66d8cafe1e525d1c02d48449c
-  LYCore: a652028c3762413830735dccb42977a697a1a56e
+  LYCore: e3027a57d2d536143cfbbe841cfd847c9605f57c
+  LYFactAppCommon: ee9aa8b311d226b728bd1ec957c2525470424aaa
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  UICKeyChainStore: 85db518bb1d294366d15ec9b92a416c4e670518f
 
 PODFILE CHECKSUM: 99273ae9281acac1f0702e7f881ae7ae4c199065
 
