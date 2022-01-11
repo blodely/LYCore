@@ -31,21 +31,8 @@
 
 // MARK: - INIT
 
-- (instancetype)initWithCoder:(NSCoder *)coder {
-	if (self = [super initWithCoder:coder]) {
-		[self initial];
-	}
-	return self;
-}
-
-- (instancetype)initWithFrame:(CGRect)frame {
-	if (self = [super initWithFrame:frame]) {
-		[self initial];
-	}
-	return self;
-}
-
 - (void)initial {
+	[super initial];
 	// SET DEFAULT MODE
 	_mode = LYControlModeNormal;
 }
@@ -55,13 +42,6 @@
 }
 
 // MARK: - METHOD
-
-- (NSString *)description {
-	return [NSString stringWithFormat:@"%@ > %@",
-			NSStringFromClass([self class]),	// Class name
-			NSStringFromCGRect(self.frame)		// View frame
-			];
-}
 
 // MARK: PROPERTY
 

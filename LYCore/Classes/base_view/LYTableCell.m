@@ -31,32 +31,6 @@
 NSString *const LYTableCellIdentifier = @"LYTableCellIdentifier";
 
 @implementation LYTableCell
-
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-	if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-		[self initial];
-	}
-	return self;
-}
-
-- (void)initial {
-	
-	// AS A CUSTOM CELL BASE VIEW, MOST UNLIKELY USING DEFAULT STYLE
-	self.backgroundColor = [UIColor clearColor];
-	self.selectionStyle = UITableViewCellSelectionStyleNone;
-}
-
-- (void)awakeFromNib {
-	[super awakeFromNib];
-	// INITIALIZATION CODE
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-	[super setSelected:selected animated:animated];
-
-	// CONFIGURE THE VIEW FOR THE SELECTED STATE
-}
-
 @end
 
 

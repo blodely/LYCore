@@ -25,6 +25,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <LYFactAppCommon/LYFactAppCommon.h>
 
 
 // MARK: - LYTableCell
@@ -33,14 +34,9 @@ FOUNDATION_EXPORT NSString *const LYTableCellIdentifier;
 
 /**
  General table view cell base class.
+ Refactoring: pack from FACBaseTableCell for compatibility (from 1.13.4)
  */
-@interface LYTableCell : UITableViewCell
-
-/**
- initial method
- */
-- (void)initial;
-
+@interface LYTableCell : FACBaseTableCell
 @end
 
 // MARK: - LYSeperatorTableCell

@@ -26,35 +26,13 @@
 
 #import "LYView.h"
 
+
 @implementation LYView
 
 // MARK: - INIT
 
-- (instancetype)initWithFrame:(CGRect)frame {
-	if (self = [super initWithFrame:frame]) {
-		[self initial];
-	}
-	return self;
-}
-	
-- (void)initial {
-	
-}
-	
 + (instancetype)view {
 	return [[[self class] alloc] init];
-}
-
-// MARK: - METHOD
-
-/**
- overwrite -description method
-
- @return description string.
- */
-- (NSString *)description {
-	return [NSString stringWithFormat:@"%@ > %@\n",
-			NSStringFromClass([self class]), NSStringFromCGRect(self.frame)];
 }
 
 @end

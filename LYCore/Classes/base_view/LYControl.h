@@ -25,6 +25,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <LYFactAppCommon/LYFactAppCommon.h>
 
 
 typedef NS_ENUM(NSUInteger, LYControlMode) {
@@ -35,12 +36,8 @@ typedef NS_ENUM(NSUInteger, LYControlMode) {
 	LYControlModeDisabled		= 4,
 };
 
-@interface LYControl : UIControl
-
-/**
- initial method
- */
-- (void)initial;
+/// Refactoring: pack FACBaseControl for compatibility (from 1.13.4)
+@interface LYControl : FACBaseControl
 
 /**
  instance creator

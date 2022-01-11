@@ -25,17 +25,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <LYFactAppCommon/LYFactAppCommon.h>
 
 
 /**
  General view base class.
+ Refactoring: packed from FACBaseView for compatibility (from 1.13.4)
  */
-@interface LYView : UIView
-
-/**
- initial method
- */
-- (void)initial;
+@interface LYView : FACBaseView
 
 /**
  instance creator

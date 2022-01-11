@@ -29,33 +29,4 @@
 NSString *const LYCollectionCellIdentifier = @"LYCollectionCellIdentifier";
 
 @implementation LYCollectionCell
-
-// MARK: - INIT
-
-- (instancetype)initWithFrame:(CGRect)frame {
-	if (self = [super initWithFrame:frame]) {
-		[self initial];
-	}
-	return self;
-}
-
-- (void)initial {
-	
-}
-
-// MARK: - METHOD
-
-/**
- overwrite -description
-
- @return description string.
- */
-- (NSString *)description {
-	return [NSString stringWithFormat:@"%@ > %@ > %@",
-			NSStringFromClass([self class]),	// Class name
-			NSStringFromCGRect(self.frame),		// View frame
-			([[self superview] isKindOfClass:[UICollectionView class]] ? [(UICollectionView *)[self superview] indexPathForCell:self] : @"UNKNOWN IDP")	// Cell index-path
-			];
-}
-
 @end

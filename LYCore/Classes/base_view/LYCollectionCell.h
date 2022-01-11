@@ -25,16 +25,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <LYFactAppCommon/LYFactAppCommon.h>
 
 
 FOUNDATION_EXPORT NSString *const LYCollectionCellIdentifier;
 
-@interface LYCollectionCell : UICollectionViewCell
-
-/**
- initial method
- */
-- (void)initial;
-
+/// Refactoring: pack from FACBaseCollectionCell for compatibility (from 1.13.4)
+@interface LYCollectionCell : FACBaseCollectionCell
 @end
 

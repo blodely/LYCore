@@ -25,16 +25,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <LYFactAppCommon/LYFactAppCommon.h>
 
 
-@interface LYBaseViewController : UIViewController {
-	BOOL lightStatusbar;
-}
-
-/**
- called when initial class.
- */
-- (void)initial;
+/// Refactoring: pack FACBaseVC for compatibility (from 1.13.4)
+@interface LYBaseViewController : FACBaseVC
 
 /**
  class method to get a current class's instance.
@@ -42,12 +37,5 @@
  @return instance
  */
 + (instancetype)vc;
-
-/**
- update statusbar style
-
- @param lightStyle style light content or not
- */
-- (void)updateStatusbarLight:(BOOL)lightStyle;
 
 @end

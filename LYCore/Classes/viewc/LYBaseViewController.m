@@ -26,24 +26,13 @@
 
 #import "LYBaseViewController.h"
 
-@interface LYBaseViewController ()
 
+@interface LYBaseViewController () {}
 @end
 
 @implementation LYBaseViewController
 
 // MARK: - INIT
-
-- (instancetype)init {
-	if (self = [super init]) {
-		[self initial];
-	}
-	return self;
-}
-
-- (void)initial {
-	
-}
 
 + (instancetype)vc {
 	return [[[self class] alloc] init];
@@ -51,23 +40,6 @@
 
 // MARK: VIEW LIFE CYCLE
 
-- (void)loadView {
-	[super loadView];
-	
-	self.view.backgroundColor = [UIColor whiteColor];
-}
-
-// MARK: STATUSBAR
-
-- (UIStatusBarStyle)preferredStatusBarStyle {
-	return lightStatusbar ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault;
-}
-
 // MARK: - METHOD
-
-- (void)updateStatusbarLight:(BOOL)lightStyle {
-	lightStatusbar = lightStyle;
-	[self setNeedsStatusBarAppearanceUpdate];
-}
 
 @end
