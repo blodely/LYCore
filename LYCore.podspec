@@ -44,6 +44,6 @@ Versions: 1.0.38=>iOS8; 1.12.x=>Xcode12.iOS9
   
   s.dependency 'JLRoutes', '~> 2.1'
   
-  s.dependency 'LYFactAppCommon'
+  s.dependency 'LYFactAppCommon', '~> 1.0.6'
   
 end

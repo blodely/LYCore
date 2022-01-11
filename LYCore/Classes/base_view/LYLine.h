@@ -24,13 +24,14 @@
 //	SOFTWARE.
 //
 
-//#import <LYCore/LYCore.h>
 #import <LYCore/LYView.h>
+#import <LYFactAppCommon/LYFactAppCommon.h>
 
 /**
  View for seperator line: set clips to bound, with user interaction disabled.
+ Refactoring: pack from FACNoInteractView for compatibility (from 1.13.4)
  */
-@interface LYLine : LYView
+@interface LYLine : FACNoInteractView
 
 /**
  create a line view with specified hex color string background color.

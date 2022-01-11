@@ -24,7 +24,6 @@
 //	SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
 #import <LYFactAppCommon/LYFactAppCommon.h>
 
 

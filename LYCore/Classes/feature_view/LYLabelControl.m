@@ -63,24 +63,6 @@
 // MARK: - LYLabelControl
 
 @implementation LYLabelControl
-
-- (void)initial {
-	[super initial];
-	
-	self.backgroundColor = [UIColor clearColor];
-	
-	{
-		// MARK: Label
-		UILabel *view = [[UILabel alloc] init];
-		[self addSubview:view];
-		_label = view;
-		
-		[view mas_makeConstraints:^(MASConstraintMaker *make) {
-			make.edges.equalTo(self);
-		}];
-	}
-}
-
 @end
 
 // MARK: - LYCalloutCopyLabel

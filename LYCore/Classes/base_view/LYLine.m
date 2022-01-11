@@ -36,7 +36,7 @@
 
 + (instancetype)lineWithColor:(UIColor *)backgroundColor {
 	
-	LYLine *line = [LYLine view];
+	LYLine *line = [[LYLine alloc] init];
 	
 	if (backgroundColor != nil && [backgroundColor isKindOfClass:[UIColor class]]) {
 		line.backgroundColor = backgroundColor;

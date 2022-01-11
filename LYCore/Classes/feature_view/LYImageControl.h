@@ -3,7 +3,7 @@
 //	LYCore
 //
 //	CREATED BY LUO YU ON 2019-05-26.
-//	COPYRIGHT (C) 2019 骆昱(Luo Yu, indie.luo@gmail.com). ALL RIGHTS RESERVED.
+//	COPYRIGHT (C) 2019~2022 骆昱(Luo Yu, indie.luo@gmail.com). ALL RIGHTS RESERVED.
 //
 //	Permission is hereby granted, free of charge, to any person obtaining a copy
 //	of this software and associated documentation files (the "Software"), to deal
@@ -24,12 +24,12 @@
 //	SOFTWARE.
 //
 
-#import <LYCore/LYControl.h>
+#import <LYFactAppCommon/LYFactAppCommon.h>
 
 
 /**
  Control with a image view inside.
+ Refactoring: pack from FACImageControl for compatibility (from 1.13.4)
  */
-@interface LYImageControl : LYControl
-@property (nonatomic, weak) UIImageView *imageView;
+@interface LYImageControl : FACImageControl
 @end
